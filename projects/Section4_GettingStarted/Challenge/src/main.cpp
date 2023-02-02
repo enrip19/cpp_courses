@@ -37,4 +37,6 @@ int main() {
   std::cout << "Amazing!! That's my favorite number too!" << std::endl;
   std::cout << "No really!!, " << fav_num << " is my favorite number!"
             << std::endl;
+
+  return 0;
 }
