@@ -4,23 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "832d51e7fa36f0a1",
+        "id": "5a4ce561047dab01",
         "type": "tabs",
         "children": [
           {
-            "id": "e5e1244274fb7399",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "notes/Links of interest.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "4ea820faab7b279c",
+            "id": "fb8ba538f6a71cd5",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -31,8 +19,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -168,9 +155,10 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "4ea820faab7b279c",
+  "active": "fb8ba538f6a71cd5",
   "lastOpenFiles": [
     "notes/Links of interest.md",
+    "notes/Commands.md",
     "en.cppreference.com/w/cpp/keyword.md"
   ]
 }
