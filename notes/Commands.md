@@ -29,3 +29,14 @@ cin >> data;
 // Can be chained
 cin >> data1 >> data2;
 ```
+
+# Initializing variables
+``` C++
+int age; // uninitialized
+
+int age = 21; // C-like inititialization
+
+int age (21); // Construction initialization
+
+int age {21}; // C++11 list initialization syntax
+```
