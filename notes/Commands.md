@@ -117,16 +117,16 @@ int movie_rating[3][4]
 - Individual elements can be accessed by their position or index
 - First element is at index 0
 - Last elelment is at index size-1
-- usin[] -> no checking to see if you are out of bounds
-- Provides many useful function that do bounds check
+- using [] -> no checking to see if you are out of bounds
+	- They provide many useful functions that do bounds checking
 - Elements initialized to zero
 - Very efficient
 - Iteraion (looping) is often used to process
 
 
 ## How to use them?
+### Declaration & initialization
 ```C++
-// Declaration
 #include <vector> 
 using namespace std; // vectors are part of standard library so we must declare the namespace or use std::vector
 vector <char> vowels; // vector of chars (undefined size)
@@ -141,6 +141,43 @@ vector <double> hi_temperatures (365, 80.0); // vector of 365 doubles initialize
 // array-like initialization syntax
 vector <char> vowels {'a','e','i','o','u'}; // vector of 5 chars initialized as the list says
 vector <int> test_scores {100,98,89,85,93}; // vector of 5 ints initialized as the list says
+```
+
+### Accessing vector elements
+```C
+vector <int> test_scores {100,95,99};
+
+// array-like access
+vector_name[element_index];
+
+// Example
+cout << test_scores[0];
+```
+#### at()
+Access to the element 
+```C++
+// at() method
+vector_name.at(element_index);
+
+// Example
+vector <int> test_scores {100,95,99};
+
+cout << test_scores.at(0);
+test_scores.at(1) = 90;
+cin >> test_scores.at(3);
+```
+#### push_back()
+```C++
+// push_back() method
+vector_name.push_back(element);
+
+// Example
+vector <int> test_scores {100,95,99};
+
+test_scores.push_back(80); // 100,95,99, 80
+test_scores.push_back(90); // 100,95,99,80, 90
+
+
 ```
 
 
