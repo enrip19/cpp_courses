@@ -44,6 +44,7 @@ int main() {
   const double price_small_room = 25;
   const double price_large_room = 35;
   const double sales_tax = 0.06;
+  const int estimate_expiry = 30;
 
   double cost_rooms =
       (small_rooms * price_small_room) + (large_rooms * price_large_room);
@@ -58,7 +59,7 @@ int main() {
   cout << "Tax: $" << tax_cost << endl;
   cout << "===============================" << endl;
   cout << "Total estimate: $" << cost_rooms + tax_cost << endl;
-  cout << "This "
+  cout << "This estimate is valid for " << estimate_expiry << " days" << endl;
 
   cout << endl;
   return 0;
