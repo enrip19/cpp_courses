@@ -201,3 +201,35 @@ vector <vector <int>> movie_ratings
 	{1,2,3,4}
 }
 ```
+
+# Expressions
+Expresions are a sequence of operators and operands that specifies a computation.
+- The most basic  building block of a program
+- Computes a value from a number of operands
+## Examples
+``` C++
+34 //literal
+favorite_number //variable
+1.5 + 2.8 // addition
+2 * 5 // multiplication
+a > b // relational
+a = b // assignment
+```
+
+# Statements
+A complete line of code that performs some action
+- Usually terminated with a semi-colon ( `;` )
+- Usually contain expressions
+- C++ has many types of statements: expression, null, compound, selection, iteration, declaration, jump, try blocks, ...
+## Examples
+``` C++ 
+int x; // declaration
+favorite_number = 12; //assignment
+1.5 + 2.8; // expression
+x = 2 * 5 //asssignment
+if(a > b) cout << "a is greater than b"; //if
+; // null statement -> performs no actions
+```
+
+# Operators
+- assignment operator -> 
