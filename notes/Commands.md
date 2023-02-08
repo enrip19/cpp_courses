@@ -104,15 +104,38 @@ int movie_rating[3][4]
 
 # Vector
 - Container in the C++ Standard Template Library
-- It is an array that can grow and shrink in size at execution time (Dynamic arrays)
+- **It is an array that can grow and shrink in size at execution time (Dynamic arrays)**
+## Characteristics
 - Similar semantics and syntax as arrays
 - Very efficient
 - Can provide bounds checking
 - Can use lots of cool functions like sort, reverse, find and more.
-```C++
-// Declaring
-#include <vector>
-using namespace std;
 
-vector <char> vowels; // vector of chars (u)
-vector <int> test_scores
+- Dynamic size
+-  Elements are all the same type
+- Stored contiguously in memory
+- Individual elements can be accessed by their position or index
+- First element is at index 0
+- Last elelment is at index size-1
+
+## How to use them?
+```C++
+// Declaration
+#include <vector> 
+using namespace std; // vectors are part of standard library so we must declare the namespace or use std::vector
+vector <char> vowels; // vector of chars (undefined size)
+vector <int> test_scores; // vector of ints (undefined size)
+
+// Initialization
+// constructor initialization syntax
+vector <char> vowels (5); // vector of chars (5 chars size)
+vector <int> test_scores (10); // vector of ints (10 ints size). They automatically set to 0
+vector <double> hi_temperatures (365, 80.0); // vector of 365 doubles initialized to 80.0 value
+
+// array-like initialization syntax
+vector <char> vowels {'a','e','i','o','u'}; // vector of 5 chars initialized as the list says
+vector <int> test_scores {100,98,89,85,93}; // vector of 5 ints initialized as the list says
+```
+
+
+
