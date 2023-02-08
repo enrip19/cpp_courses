@@ -52,3 +52,27 @@ const double pi {3.1415926};
 	 - Don't use defined constants in Modern C++ due to the fact that is difficult for the compiler to check errors (because preprocessor doesn't know c++). 
 	   Use Declared contants instead.
 
+# Arrays
+``` C++
+// declaration
+element_type array_name [number_of_elements];
+// initialization
+element_type array_name [number_of_elements] {init_list}; 
+//You can skip the number_of elements. The compiler will calculate from init_list
+element_type array_name [] {init_list};
+	//If you skip the init_list, all elements will be initialized to 0
+	element_type array_name [3] {};
+	//output: [0,0,0]
+// Access/store to array elements
+array_name[element_index]; // -> There is no bound checking!!!
+
+//Examples
+int test_scores [5];
+int test_scores [5] {100,95,99,87,88};
+cout << test_scores[2]; //output is: 99
+cin >> test_score[2];
+
+```
+
+
+
