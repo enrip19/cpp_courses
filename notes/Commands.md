@@ -262,3 +262,17 @@ num = 100.2; // num is demoted to 100 (from double to int)
 
 ### Explicit Casting
 ```C++
+// Modern C++ casting -> Checks if the variable can be converted to the cast type
+static_cast<type>(variable_to_cast);
+
+// Old C-style casting
+(type) variable_to_cast;
+
+// Example Modern C++ cast
+int total_amount {100};
+double tot_amo = static_cast<double>(total_amount); // equals to 100.0
+
+// Example Old C-style cast
+int total_amount {100};
+double tot_amo = (double) total_amount; // equals to 100.0
+```
