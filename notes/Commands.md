@@ -193,4 +193,11 @@ cout << vector_name.size();
 ```
 
 ### 2D vector
-```C
+```C++
+vector <vector <int>> movie_ratings
+{
+	{1,2,3,4},
+	{1,2,3,4},
+	{1,2,3,4}
+}
+```
