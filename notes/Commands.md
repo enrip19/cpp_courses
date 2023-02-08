@@ -40,3 +40,15 @@ int age (21); // Construction initialization
 
 int age {21}; // C++11 list initialization syntax
 ```
+
+# Types of Constants
+- Literal Constants (normal constants)
+- Declared constants: constants declared using the `const` keyword. 
+	- If you try to change the assinged value to a declared constant, the compiler will do an error.
+``` C++
+const double pi {3.1415926};
+```
+- Defined constants: constants declared using the `#define` preprocessor instruction	
+	 - Don't use defined constants in Modern C++ due to the fact that is difficult for the compiler to check errors (because preprocessor doesn't know c++). 
+	   Use Declared contants instead.
+
