@@ -109,3 +109,10 @@ int movie_rating[3][4]
 - Very efficient
 - Can provide bounds checking
 - Can use lots of cool functions like sort, reverse, find and more.
+```C++
+// Declaring
+#include <vector>
+using namespace std;
+
+vector <char> vowels; // vector of chars (u)
+vector <int> test_scores
