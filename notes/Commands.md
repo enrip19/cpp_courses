@@ -53,6 +53,7 @@ const double pi {3.1415926};
 	   Use Declared contants instead.
 
 # Arrays
+## 1D Arrays
 ``` C++
 // declaration
 element_type array_name [number_of_elements];
@@ -77,5 +78,29 @@ cin >> test_score[2];
 cout << test_scores; //output is the address of the array
 ```
 
+## 2D Arrays
+``` C++
+// Declaration of the 2 dimensions
+const int rows {3};
+const int cols {4};
+// Declaration of the 2D array.
+int movie_rating [rows][cols];
 
+//Accessing to the array
+cin >> movie_rating[1][2];
+cout << movie_rating[1][2];
+```
 
+## Multi-dimensional Arrays
+``` C++
+// Declaration
+int movie_rating[3][4]
+{
+	{0,4,3,5},
+	{2,3,3,5},
+	{1,4,4,5}
+}
+```
+
+# Vector
+- It is an array that can grow and shrink in size at execution time
