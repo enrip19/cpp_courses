@@ -232,4 +232,9 @@ if(a > b) cout << "a is greater than b"; //if
 ```
 
 # Operators
-- assignment operator -> 
+- assignment operator -> **=**
+- arithmetic operators -> **+, -, *, /, %** 
+- incremement operator -> **++ 
+- decrement operator -> **--**
+- 
+- 
