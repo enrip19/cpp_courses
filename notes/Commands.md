@@ -117,6 +117,12 @@ int movie_rating[3][4]
 - Individual elements can be accessed by their position or index
 - First element is at index 0
 - Last elelment is at index size-1
+- [] - no checking to see if you are out of bounds
+- Provides many useful function that do bounds check
+- Elements initialized to zero
+- Very efficient
+- Iteraion (looping) is often used to process
+
 
 ## How to use them?
 ```C++
