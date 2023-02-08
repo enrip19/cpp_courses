@@ -153,8 +153,12 @@ vector_name[element_index];
 // Example
 cout << test_scores[0];
 ```
-#### at()
-Access to the element 
+
+#### at() method
+Access to the element index you put in the argument.
+
+> Same as array-like access but with bounds-checking
+ 
 ```C++
 // at() method
 vector_name.at(element_index);
@@ -167,6 +171,8 @@ test_scores.at(1) = 90;
 cin >> test_scores.at(3);
 ```
 #### push_back()
+- Vector will automatically allocate the required space
+- All vectors elements must be of the same type, so you must put in the element argument a same-type value to be added.
 ```C++
 // push_back() method
 vector_name.push_back(element);
@@ -176,8 +182,6 @@ vector <int> test_scores {100,95,99};
 
 test_scores.push_back(80); // 100,95,99, 80
 test_scores.push_back(90); // 100,95,99,80, 90
-
-
 ```
 
 
