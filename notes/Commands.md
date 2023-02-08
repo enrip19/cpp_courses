@@ -236,5 +236,29 @@ if(a > b) cout << "a is greater than b"; //if
 - arithmetic operators -> **+, -, *, /, %** 
 - incremement operator -> **++ 
 - decrement operator -> **--**
-- 
-- 
+
+## Mixed Expressions and Conversions
+- C++ operations occur oon same type operands
+- **If operands are of different types, C++ will convert one** -> Coercion
+	- If it can't, a compiler error will occur
+### Conversions
+- Higher vs Lower types -> it converts the lower type to the higher type
+	- Example: double vs int -> converts int to a double
+	- Special: short and chart types are always converted to int.
+#### Definitions
+- Type Coercion: conversion of one operand to another data type
+- Promotion: conversion to a higher type
+	- Used in mathematical expressions
+```C++
+2 * 5.2 // 2 is promoted to 2.0 (from int to double)
+```
+- Demotion: conversion to a lower type
+	- Used with assignment to lower type
+```C++
+int num {0};
+num = 100.2; // num is demoted to 100 (from double to int) 
+			 //-> Warning! POTENTIALLY LOSS OF INFORMATION!!!
+```
+
+### Explicit Casting
+```C++
