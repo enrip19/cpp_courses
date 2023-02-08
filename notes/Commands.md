@@ -103,4 +103,9 @@ int movie_rating[3][4]
 ```
 
 # Vector
-- It is an array that can grow and shrink in size at execution time
+- Container in the C++ Standard Template Library
+- It is an array that can grow and shrink in size at execution time (Dynamic arrays)
+- Similar semantics and syntax as arrays
+- Very efficient
+- Can provide bounds checking
+- Can use lots of cool functions like sort, reverse, find and more.
