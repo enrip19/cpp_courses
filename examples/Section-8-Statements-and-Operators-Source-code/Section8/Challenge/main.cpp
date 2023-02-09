@@ -41,14 +41,34 @@ using namespace std;
 
 int main() {
   int cents, dollars, quarters, dimes, nickels, pennies;
-	const int cents_to_dollars = 100;
-	const int 
+
+  const int cents_to_dollars = 100;
+  const int cents_to_quarters = 25;
+  const int cents_to_dimes = 10;
+  const int cents_to_nickels = 5;
+  const int cents_to_pennies = 1;
+
   cout << "Enter an amount in cents: ";
   cin >> cents;
 
-  dollars = cents / 100;
-  cents %= 100;
-  cout << dollars << cents;
+  dollars = cents / cents_to_dollars;
+  cents %= cents_to_dollars;
+  cout << "Dollars:\t" << dollars << endl;
+
+  quarters = cents / cents_to_quarters;
+  cents %= cents_to_quarters;
+  cout << "Quarters:\t" << quarters << endl;
+
+  dimes = cents / cents_to_dimes;
+  cents %= cents_to_dimes;
+  cout << "Dimes:\t\t" << dimes << endl;
+
+  nickels = cents / cents_to_nickels;
+  cents %= cents_to_nickels;
+  cout << "Nickels:\t" << nickels << endl;
+
+  pennies = cents;
+  cout << "Pennies:\t" << pennies << endl;
 
   cout << endl;
   return 0;
