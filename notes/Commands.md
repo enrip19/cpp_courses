@@ -279,3 +279,31 @@ double tot_amo = static_cast<double>(total_amount); // equals to 100.0
 int total_amount {100};
 double tot_amo = (double) total_amount; // equals to 100.0
 ```
+
+# Loops
+**All loops from C are available in C++.**
+
+## Range-based For Loop
+```C++
+for (var_type var_name : sequence)
+	statements; // can use var_name
+}
+
+// Example
+int scores [] {100, 90, 97};
+
+for (int score : scores)
+	cout << score << endl;
+// Output
+// 100
+// 90
+// 97	
+// The code iterates into the array scores.
+
+// We don't need to declarate the type of the variable (with the word auto):
+int scores [] {100, 90, 97};
+
+for(auto score : scores)
+	cout << score << endl;
+
+```
