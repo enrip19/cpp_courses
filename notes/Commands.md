@@ -236,7 +236,10 @@ if(a > b) cout << "a is greater than b"; //if
 - arithmetic operators -> **+, -, *, /, %** 
 - incremement operator -> **++ 
 - decrement operator -> **--**
-
+- equality operators -> **== , != 
+- relational operators -> **>, >=, <, <=, < = >**
+- logical operators -> **not, !, and, &&, or, ||**
+ 
 ## Mixed Expressions and Conversions
 - C++ operations occur oon same type operands
 - **If operands are of different types, C++ will convert one** -> Coercion
