@@ -129,7 +129,13 @@ void list_smallestElement(vector<int>& list) {
 }
 
 void list_largestElement(vector<int>& list) {
-    
+  int largest;
+  if (list.size() == 0)
+    cout << "Unable to determine the largest number - list is empty" << endl;
+  else {
+    largest = *max_element(list.begin(), list.end());
+    cout << "The largest number is " << largest;
+  }
 }
 
 int main() {
@@ -161,6 +167,9 @@ int main() {
       case 's':
         list_smallestElement(numbers);
         break;
+      case 'l':
+        list_largestElement(numbers);
+        break;
       case 'q':
         cout << "Bye!!!" << endl;
         quit = true;
@@ -172,3 +181,4 @@ int main() {
   }
   return 0;
 }
+
