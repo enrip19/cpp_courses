@@ -370,11 +370,66 @@ string s4 {"Frank", 3}; // Fra
 string s5 {s3, 0, 2}; // Fr
 string s6 (2, 'X'); // XXX
 ```
-
 ### Assignment
 ``` C++
 string s1;
 s1 = "C++ Rocks!";
 
 string s2 {"Hello"};
-s
+s2 = s1;
+```
+### Concatenation
+```C++
+string part1 {"C++"};
+stirng part2 {"is a powerful"};
+
+string sentence;
+
+sentence = part1 + " " + part2 + " language"; // C*+ is a powerful languange
+
+sentence = "C++" + " is powerful"; // ILLEGAL (because we have 2 c-style literals which can't be concatenated!!! Only works with C++-style strings and a combination of C++ and C-style strings)
+```
+### Accessing characters 
+Same as vectors
+```C++
+string s1;
+string s2 {"Frank"};
+
+cout << s2[0] << endl; // Output: F -> Array-style access
+cout << s2.at(0) << endl; // Output: F -> Method-style access
+
+s2[0] = 'f'; // frank
+s2.at(0) = 'p'; // prank
+
+for (auto c: s2)
+	cout << c << endl;
+
+// Output: 
+// F
+// r
+// a
+// n
+// k
+```
+### Comparing 
+- You can use :
+	- ==
+	- !=
+	- >
+	- >=
+	- <
+	- <=
+- The objects are compared character by character lexically
+- Can compare:
+	- 2 `std::strings` objects
+	- `std::strings` object and C-style string literal
+	- `std::string` object and C-style string variable	
+```C++
+stirng s1 {"Apple"};
+string s2 {"Banana"};
+stiring s3 {"Kiwi"};
+stiring s4 {"apple"};
+string s5 {s1};
+
+s1 == s5 // True
+
