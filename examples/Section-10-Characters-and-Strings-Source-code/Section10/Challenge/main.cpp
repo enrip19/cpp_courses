@@ -30,12 +30,26 @@ Reuse existing functionality in libraries and in the std::string class!
 */
 
 #include <iostream>
+#include <string>
+
+using namespace std;
 
 int main() {
     
     string alphabet {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
     string key  {"XZNLWEBGJHQDYVTKFUOMPCIASRxznlwebgjhqdyvtkfuompciasr"};
-    
+
+    string secret_message;
+    string encrypted_message;
+
+    cout << "Write a secret message: ";
+    cin >> secret_message;
+
+    for (auto c: secret_message)
+    {
+        encrypted_message += key[alphabet.find(c)
+    }
+
     
     cout << endl;
     return 0;
