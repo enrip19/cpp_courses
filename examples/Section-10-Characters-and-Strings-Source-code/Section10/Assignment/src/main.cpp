@@ -7,12 +7,14 @@ int main() {
   string input_string;
 
   cout << "Enter a string for Letter Pyramid construction: ";
-  cin >> input_string;
+  //   cin >> input_string;
+  input_string = {"abc"};
   cout << endl;
 
   cout << "\n --- Letter Pyramid --- " << endl;
 
-  int string_len = input_string.size();
+  int string_len = input_string.size();  // the size of the string says how many
+                                         // lines will have the pyramid
   int base_len = string_len * 2 - 1;
 
   string reverse_string = string(input_string.rbegin(), input_string.rend());
@@ -23,7 +25,12 @@ int main() {
 
   cout << "### Debug ###\tBASE:" << base << endl;
 
-  for (int i = 0; i < ((string_len * 2) - 1); i++) {
+  for (int i = 0; i <= string_len; i++) {
+    string line_chars = input_string.substr(0, i);
+    int num_spaces = string_len - line_chars.size() - 1;
+    if (num_spaces > 0)
+      int spaces_every_sid = num_spaces / 2 cout << line_chars << ", "
+                                                 << num_spaces << endl;
   }
 
   cout << endl;
