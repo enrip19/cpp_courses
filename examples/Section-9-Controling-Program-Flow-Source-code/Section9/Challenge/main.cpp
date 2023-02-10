@@ -77,16 +77,37 @@ Good luck!
 
 using namespace std;
 
-int main() {
-  int cmd;
-  vector<char> valid_cmd{'p', 'a', 'm', 's', 'l', 'q'};
-
+void print_cmds(void) {
   cout << "P - Print numbers" << endl;
   cout << "A - Add a number" << endl;
   cout << "M - Display mean of the numbers" << endl;
   cout << "S - Display the smallest number" << endl;
   cout << "L - Display the largest number" << endl;
   cout << "Q - Quit\n" << endl;
+}
+
+void print_list(vector<int> list)
+{
+    if(list.size() != 0)
+    {
+        cout << "\n[";
+        for (auto val: list)
+        {
+            cout << val;
+        }
+        cout << "]" << endl;
+    }
+    else
+        cout << "[] - the list is empty";
+}
+
+int main() {
+  char cmd;
+  vector<char> valid_cmd{'p', 'a', 'm', 's', 'l', 'q'};
+    
+    vector <int> list {};
+
+  print_cmds();
 
   while (true) {
     cout << "Enter your choice: ";
@@ -94,10 +115,22 @@ int main() {
     cout << endl;
 
     vector<char>::iterator it =
-        find(valid_cmd.begin(), valid_cmd.end(), static_cast<char> (cmd));
+        find(valid_cmd.begin(), valid_cmd.end(), static_cast<char>(cmd));
 
-    if (it != valid_cmd.end())
+    if (it == valid_cmd.end())
       cout << "Unknown selection, please try again" << endl;
+      continue;
+
+    switch (cmd)
+    {
+    case 'p':
+        print_list(list)
+        break;
+    
+    default:
+        break;
+    }
+    
   }
   return 0;
 }
