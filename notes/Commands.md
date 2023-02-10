@@ -349,3 +349,16 @@ Functions to convert C-style Strings to:
 - long 
 - etc
 
+## C++ strings
+`#include <string>`
+- Class in the Standard Template Library
+- contiguous in memory 
+- dynamic size
+- work with input and output streams
+- lots of useful member functions
+- our familiar operators can be used (+, =, <, <=, >, >=, +=, ==, !=, [], ...)
+- can be easily converted to C-style Strings if needed
+- safer
+```C++
+ 
+```
