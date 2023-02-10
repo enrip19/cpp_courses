@@ -6,9 +6,8 @@ using namespace std;
 int main() {
   string input_string;
 
-  //   cout << "Enter a string for Letter Pyramid construction: ";
-  //   cin >> input_string;
-  input_string = {"abc"};
+  cout << "Enter a string for Letter Pyramid construction: ";
+  cin >> input_string;
   cout << "### Debug ###\t Input String: " << input_string << endl;
 
   cout << "\n --- Letter Pyramid --- " << endl;
@@ -17,7 +16,7 @@ int main() {
                                          // lines will have the pyramid
   int base_len = string_len * 2 - 1;
 
-  for (int i = 1; i <= string_len; i++) {
+  for (int i = 1; i <= string_len; i++) { 
     string line_chars = input_string.substr(0, i);
     string reverse_line_chars = string(line_chars.rbegin(), line_chars.rend());
 
@@ -33,7 +32,7 @@ int main() {
     //      << "\tnum_spaces: " << num_spaces << endl;
 
     if (num_spaces > 0) {
-      int spaces_every_sid = num_spaces / 2;
+      int spaces_every_sid = num_spaces / 2 - 1;
 
       for (int j = 0; j <= spaces_every_sid; j++) {
         pyramid_line.insert(j, {" "});
