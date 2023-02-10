@@ -86,51 +86,50 @@ void print_cmds(void) {
   cout << "Q - Quit\n" << endl;
 }
 
-void print_list(vector<int> list)
-{
-    if(list.size() != 0)
-    {
-        cout << "\n[";
-        for (auto val: list)
-        {
-            cout << val;
-        }
-        cout << "]" << endl;
+void list_printElements(vector<int> list) {
+  if (list.size() != 0) {
+    cout << "[ ";
+    for (auto val : list) {
+      cout << val << " ";
     }
-    else
-        cout << "[] - the list is empty";
+    cout << "]" << endl;
+  } else
+    cout << "[] - the list is empty";
+}
+
+void list_addElement(vector<int> list){
+    
 }
 
 int main() {
   char cmd;
   vector<char> valid_cmd{'p', 'a', 'm', 's', 'l', 'q'};
-    
-    vector <int> list {};
+
+  vector<int> list{1,2,3};
 
   print_cmds();
 
   while (true) {
-    cout << "Enter your choice: ";
+    cout << "\nEnter your choice: ";
     cin >> cmd;
     cout << endl;
 
     vector<char>::iterator it =
         find(valid_cmd.begin(), valid_cmd.end(), static_cast<char>(cmd));
 
-    if (it == valid_cmd.end())
+    if (it == valid_cmd.end()) {
       cout << "Unknown selection, please try again" << endl;
       continue;
+    }
 
-    switch (cmd)
-    {
-    case 'p':
-        print_list(list)
+    switch (cmd) {
+      case 'p':
+        list_printElements(list);
         break;
-    
-    default:
+
+      default:
         break;
     }
-    
   }
   return 0;
 }
