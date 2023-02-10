@@ -73,6 +73,7 @@ Good luck!
 */
 #include <algorithm>
 #include <iostream>
+#include <numeric>
 #include <vector>
 
 using namespace std;
@@ -108,12 +109,27 @@ void list_addElement(vector<int>& list) {
   cout << "Added " << inp_int << " to the list" << endl;
 }
 
-void list_meanElements(vector<char>& list) {
-    if(list.size() == 0)
-        cout << "Unable to calculate the mean - no data" << endl;
-    else{
-        average
-    }
+void list_meanElements(vector<int>& list) {
+  if (list.size() == 0)
+    cout << "Unable to calculate the mean - no data" << endl;
+  else {
+    cout << "Average: "
+         << accumulate(list.begin(), list.end(), 0.0) / list.size() << endl;
+  }
+}
+
+void list_smallestElement(vector<int>& list) {
+  int smallest;
+  if (list.size() == 0)
+    cout << "Unable to determine the smallest number - list is empty" << endl;
+  else {
+    smallest = *min_element(list.begin(), list.end());
+    cout << "The smallest number is " << smallest;
+  }
+}
+
+void list_largestElement(vector<int>& list) {
+    
 }
 
 int main() {
@@ -141,6 +157,9 @@ int main() {
         break;
       case 'm':
         list_meanElements(numbers);
+        break;
+      case 's':
+        list_smallestElement(numbers);
         break;
       case 'q':
         cout << "Bye!!!" << endl;
