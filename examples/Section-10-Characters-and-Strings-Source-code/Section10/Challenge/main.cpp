@@ -37,8 +37,8 @@ Reuse existing functionality in libraries and in the std::string class!
 using namespace std;
 
 int main() {
-  string alphabet{"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
-  string key{"XZNLWEBGJHQDYVTKFUOMPCIASRxznlwebgjhqdyvtkfuompciasr"};
+  string alphabet{"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "};
+  string key{"XZNLWEBGJHQDYVTKFUOMPCIASRxznlwebgjhqdyvtkfuompciasr "};
 
   string secret_message, encrypted_message, decrypted_message;
 
@@ -48,19 +48,15 @@ int main() {
 
   for (auto c : secret_message) {
     char k = key[alphabet.find(c)];
-    if (k != string::npos)
-      encrypted_message += k;
-    else
-      encrypted_message += c;
+    encrypted_message += k;
+    cout << "Char: " << c << " -> Key: " << k << endl;
   }
   cout << "Encripted message: " << encrypted_message << endl;
 
   for (auto c : encrypted_message) {
     char a = alphabet[key.find(c)];
-    if (a != string::npos)
-      decrypted_message += a;
-    else
-      decrypted_message += c;
+    decrypted_message += a;
+    cout << "Char: " << c << " -> Alph: " << a << endl;
   }
 
   cout << "Decrypted message: " << decrypted_message << endl;
