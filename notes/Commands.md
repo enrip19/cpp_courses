@@ -356,9 +356,25 @@ Functions to convert C-style Strings to:
 - dynamic size
 - work with input and output streams
 - lots of useful member functions
-- our familiar operators can be used (+, =, <, <=, >, >=, +=, ==, !=, [], ...)
+- our familiar operators can be used (+, =, <, <=, >, >=, +=, == , !=, [], ...)
 - can be easily converted to C-style Strings if needed
 - safer
+### Declaring and initializing
 ```C++
- 
+	#include <string>
+	using namespace std;
+string s1; // Empty
+string s2; {"Frank"}; // Frank
+string s3 {s2} // Frank
+string s4 {"Frank", 3}; // Fra
+string s5 {s3, 0, 2}; // Fr
+string s6 (2, 'X'); // XXX
 ```
+
+### Assignment
+``` C++
+string s1;
+s1 = "C++ Rocks!";
+
+string s2 {"Hello"};
+s
