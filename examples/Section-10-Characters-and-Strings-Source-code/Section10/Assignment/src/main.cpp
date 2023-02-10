@@ -28,9 +28,22 @@ int main() {
   for (int i = 0; i <= string_len; i++) {
     string line_chars = input_string.substr(0, i);
     int num_spaces = string_len - line_chars.size() - 1;
-    if (num_spaces > 0)
-      int spaces_every_sid = num_spaces / 2 cout << line_chars << ", "
-                                                 << num_spaces << endl;
+    
+    cout << line_chars << ", " << num_spaces << endl;
+
+
+    if (num_spaces > 0) {
+      int spaces_every_sid = num_spaces / 2;
+
+      string pyramid_line = line_chars;
+
+      for (int j = 0; j < spaces_every_sid; j++) {
+        pyramid_line.insert(j, {" "});
+        pyramid_line.push_back(' ');
+      }
+      cout << "pyramid_line: " << pyramid_line << endl;
+    }
+
   }
 
   cout << endl;
