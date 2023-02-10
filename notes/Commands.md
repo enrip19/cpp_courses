@@ -484,6 +484,28 @@ cout << s1.length() << endl; // Output: 5
 s1+= " James";
 cout << s1 << endl; // Output: Frank James
 ```
+### Input `>>` and `getline()`
+Reading `std::string` from `cin`
+``` C++
+// input_stream: from where we are reading
+// variable_to_save: where we are saving what we read
+// limiter (optional): a char which the program stops reading. 
+std::getline(input_stream, variable_to_save, limiter)
+
+string s1;
+cin >> s1; // Input: Hello there. 
+
+// Cin only accepts up to the first space!!! (Same for C-style strings)
+cout << s1 << endl; // Output: Hello
+
+// With getline() we read the entire line until \n (when user press ENTER)
+getline(cin, s1);
+cout << s1 << end; // Output: Hello there
+
+getline(cin, s1, 'x'); // Input: this isx
+cout << s1 << endl; // Output: this is
+```
+
 
 
 
