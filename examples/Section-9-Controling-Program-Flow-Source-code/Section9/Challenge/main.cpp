@@ -76,10 +76,23 @@ Good luck!
 using namespace std;
 
 int main() {
+    int cmd;
+    vector <char> valid_cmd {}
 
-    while(true)
-    {
-        
-    }
+  cout << "P - Print numbers" << endl;
+  cout << "A - Add a number" << endl;
+  cout << "M - Display mean of the numbers" << endl;
+  cout << "S - Display the smallest number" << endl;
+  cout << "L - Display the largest number" << endl;
+  cout << "Q - Quit\n" << endl;
+
+
+  while (true) {
+    cout << "Enter your choice: " ;
+    cin >> cmd;
+    cout << endl;
+
+    if (cmd )
+  }
   return 0;
 }
