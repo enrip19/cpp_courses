@@ -86,7 +86,7 @@ void print_cmds(void) {
   cout << "Q - Quit\n" << endl;
 }
 
-void list_printElements(vector<int> list) {
+void list_printElements(vector<int>& list) {
   if (list.size() != 0) {
     cout << "[ ";
     for (auto val : list) {
@@ -97,7 +97,7 @@ void list_printElements(vector<int> list) {
     cout << "[] - the list is empty";
 }
 
-void list_addElement(vector<int> list) {
+void list_addElement(vector<int>& list) {
   int inp_int;
 
   cout << "Enter the new integer: ";
@@ -108,15 +108,24 @@ void list_addElement(vector<int> list) {
   cout << "Added " << inp_int << " to the list" << endl;
 }
 
+void list_meanElements(vector<char>& list) {
+    if(list.size() == 0)
+        cout << "Unable to calculate the mean - no data" << endl;
+    else{
+        average
+    }
+}
+
 int main() {
   char cmd, input_cmd;
+  bool quit = false;
   vector<char> valid_cmd{'p', 'a', 'm', 's', 'l', 'q'};
 
   vector<int> numbers{};
 
   print_cmds();
 
-  while (true) {
+  while (quit == false) {
     cout << "\nEnter your choice: ";
     cin >> input_cmd;
     cout << endl;
@@ -129,6 +138,13 @@ int main() {
         break;
       case 'a':
         list_addElement(numbers);
+        break;
+      case 'm':
+        list_meanElements(numbers);
+        break;
+      case 'q':
+        cout << "Bye!!!" << endl;
+        quit = true;
         break;
       default:
         cout << "Unknown selection, please try again" << endl;
