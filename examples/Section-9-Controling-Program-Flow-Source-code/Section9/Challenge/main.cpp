@@ -97,37 +97,41 @@ void list_printElements(vector<int> list) {
     cout << "[] - the list is empty";
 }
 
-void list_addElement(vector<int> list){
-    
+void list_addElement(vector<int> list) {
+  int inp_int;
+
+  cout << "Enter the new integer: ";
+  cin >> inp_int;
+  cout << endl;
+
+  list.push_back(inp_int);
+  cout << "Added " << inp_int << " to the list" << endl;
 }
 
 int main() {
-  char cmd;
+  char cmd, input_cmd;
   vector<char> valid_cmd{'p', 'a', 'm', 's', 'l', 'q'};
 
-  vector<int> list{1,2,3};
+  vector<int> numbers{};
 
   print_cmds();
 
   while (true) {
     cout << "\nEnter your choice: ";
-    cin >> cmd;
+    cin >> input_cmd;
     cout << endl;
 
-    vector<char>::iterator it =
-        find(valid_cmd.begin(), valid_cmd.end(), static_cast<char>(cmd));
-
-    if (it == valid_cmd.end()) {
-      cout << "Unknown selection, please try again" << endl;
-      continue;
-    }
+    cmd = tolower(input_cmd);
 
     switch (cmd) {
       case 'p':
-        list_printElements(list);
+        list_printElements(numbers);
         break;
-
+      case 'a':
+        list_addElement(numbers);
+        break;
       default:
+        cout << "Unknown selection, please try again" << endl;
         break;
     }
   }
