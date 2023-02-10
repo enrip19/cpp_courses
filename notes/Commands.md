@@ -307,3 +307,22 @@ for(auto score : scores)
 	cout << score << endl;
 
 ```
+
+# Characters
+## Character functions
+`#include <cctypes>`
+- Functions for testing characters
+![](images/Pasted%20image%2020230210105652.png)
+- Functions for converting character case
+![](images/Pasted%20image%2020230210105718.png)
+# Strings
+## C-Style strings
+- Sequence of characters
+	- continguous memory
+	- implemented as an array of characters
+	- terminated by a null character (null)
+	- referred to as zero or null terminated strings
+- String literal
+	- sequence of characters in double quotes. -> Example: `"Frank"`
+	- constant
+	- terminated with 
