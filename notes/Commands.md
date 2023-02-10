@@ -429,7 +429,62 @@ stirng s1 {"Apple"};
 string s2 {"Banana"};
 stiring s3 {"Kiwi"};
 stiring s4 {"apple"};
-string s5 {s1};
+string s5 {s1}; // Apple
 
-s1 == s5 // True
+s1 == s5; // True
+s1 == s2; // False
+s1 != s2; // True
+s1 < s2; // True
+s2 > s1; // True
+s4 < s5; // False
+s1 == "Apple"; //True
+```
+### Substrings - `substr()`
+Extracts a substring from a std::string
+```C++
+object.subsrt(start_index, length);
+
+string s1 {"This is a test"};
+
+cout << s1.substr(0,4); // Output: This
+cout << s1.substr(5,2); // Output: is
+cout << s1.substr(10,4); // Output: test
+```
+### Searching - `find()`
+Returns the index of a substring in a `std::string`
+```C++
+object.find(search_string);
+
+string s1 {"This is a test"};
+
+cout << s1.find("This"); // Output: 0
+cout << s1.find("is"); // Output: 2
+cout << s1.find("test"); // Output: 10
+cout << s1.find('e'); // Output: 11
+cout << s1.find("is", 4); // Output: 5
+cout << s1.find("XX"); // Output: string::npos -> npos = no position available
+```
+### Removing characters - `erase()` and `clear()`
+Removes a substring of characters from a `std::string`
+```C++
+object.erase(start_index, length);
+
+string s1 {"This is a test"};
+
+cout << s1.erase(0,5); // is a test
+cout << s1.erase(5,4); // is a
+s1.clear(); // empties string s1
+```
+### Other useful methods
+```C++
+string s1 {"Frank"};
+
+cout << s1.length() << endl; // Output: 5
+
+s1+= " James";
+cout << s1 << endl; // Output: Frank James
+```
+
+
+
 
