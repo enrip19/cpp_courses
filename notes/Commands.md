@@ -319,10 +319,33 @@ for(auto score : scores)
 ## C-Style strings
 - Sequence of characters
 	- continguous memory
-	- implemented as an array of characters
+	- **implemented as an array of characters**
 	- terminated by a null character (null)
 	- referred to as zero or null terminated strings
 - String literal
 	- sequence of characters in double quotes. -> Example: `"Frank"`
 	- constant
-	- terminated with 
+	- terminated with null character
+### Cstring library
+`#include <cstring>`
+Functions that work with C-style strings
+- copying
+- concatenation
+- comparision
+- searching
+- etc
+```C++
+char str[80];
+strcpy(str, "Hello "); // copy
+strcat(str, "there"); // concatenate
+cout << strlen(str); // output: 11
+strcmp(str, "Another"); // output > 0
+```
+### Cstandard library
+`#include <cstdlib>`
+Functions to convert C-style Strings to:
+- integer
+- float
+- long 
+- etc
+
