@@ -71,13 +71,15 @@ occurs in the list
 Good luck!
 
 */
+#include <algorithm>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
 int main() {
-    int cmd;
-    vector <char> valid_cmd {}
+  int cmd;
+  vector<char> valid_cmd{'p', 'a', 'm', 's', 'l', 'q'};
 
   cout << "P - Print numbers" << endl;
   cout << "A - Add a number" << endl;
@@ -86,13 +88,16 @@ int main() {
   cout << "L - Display the largest number" << endl;
   cout << "Q - Quit\n" << endl;
 
-
   while (true) {
-    cout << "Enter your choice: " ;
+    cout << "Enter your choice: ";
     cin >> cmd;
     cout << endl;
 
-    if (cmd )
+    vector<char>::iterator it =
+        find(valid_cmd.begin(), valid_cmd.end(), static_cast<char> (cmd));
+
+    if (it != valid_cmd.end())
+      cout << "Unknown selection, please try again" << endl;
   }
   return 0;
 }
