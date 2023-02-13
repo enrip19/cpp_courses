@@ -506,6 +506,32 @@ getline(cin, s1, 'x'); // Input: this isx
 cout << s1 << endl; // Output: this is
 ```
 
+# Functions
+## Arguments
+### Pass-by-value
+- When you pass data into a functioon it is passed-by-value
+- **A copy of the data** is passed to the funciton
+- Whatever changes you make to the parameter in the function does NOT affect the argument that was passed in.
+- Formal vs actual parameters:
+	- Formal parameters -> the parameters defined in the function headers
+	- Actual parameters -> the parameters used in the function call (the arguments)
+``` C++
+void param_test (int formal) // formal is a copy of actual
+{
+	cout << formal << endl; // Output: 50
+	formal = 100; // only changes the local copy
+	cout << formal << endl; // Output: 100
+}
+
+int main(){
+	int actual {50};
+	cout << actual << endl; // Output: 50
+	param_test(actual); // pass in 50 to param_test
+	cout << actual << endl; // Output: 50 -> did not change
+	return 0;
+}
+ ```
+
 
 
 
