@@ -508,6 +508,20 @@ cout << s1 << endl; // Output: this is
 
 # Functions
 ## Arguments
+- All arguments must be supplied in the function call
+- Some arguments can be defined with a default value:
+	- best practice -> in the prototype
+	- must appear at the tail end of the parameter list
+	- can have multiple default values
+		- must appear consecutively at the tail end of the parameter list
+	- The compiler will apply the default value if the argument is not supplied in the function call
+``` C++
+// Single default argument definition in the PROTOTYPE
+double calc_cost(double base_cost, double tax_rate = 0.06);
+
+// Multiple default arguments
+double calc_cost(double base_cost, double tax_rate = 0.06, double shipping = 3.50);
+```
 ### Pass-by-value
 - When you pass data into a functioon it is passed-by-value
 - **A copy of the data** is passed to the funciton
