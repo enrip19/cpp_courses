@@ -571,6 +571,26 @@ int main() {
 }
 ```
 
+> Attention! 
+> Return type is not considered. If there is no difference in the arguments of two overloaded functions, the compiler will get an error.
+> The same with the default values can happen.
+``` C++
+// Overloading with no arguments
+int get_value();
+double get_value();
+// COMPILER ERROR
+cout << get_value() << endl; // Compiler doesn't know which function are you calling.
+
+// Overloading with default arguments
+void print(int=100);
+void print(double=125.5);
+// COMPILER ERROR
+print(); // Compiler doesn't know which function are you calling.
+
+// Normally it sends the next error: "Call of overloaded 'print()' is ambiguous"
+```
+
+### Function templates
 
 
 
