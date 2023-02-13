@@ -547,6 +547,30 @@ int main(){
  ```
 
 ## Funtion overloading
+- We can have functions that have different parameter lists that have the **same name**
+- Abstraction mechanism 
+- A type of polymorphism (many forms for the same concept)
+	- we can have the same name work with different data types to execute similar behavior
+- The compiler must be able tot tell the functions apart based on the parameter list and argument supplied
+``` C++
+int add_numbers (int, int); // add ints
+double add_numbers(double, double); // add doubles
+
+// You must declare the two versions of the function
+int add_numbers(int a, int b){
+	return a + b;
+}
+
+double add_numbers(double a, double b){
+	return a + b;
+}
+
+int main() {
+	cout << add_numbers(10, 20) << endl; // Output: 30 -> type int
+	cout << add_numbers(10.0, 20.0) << endl; // Output: 30.0 -> type double
+}
+```
+
 
 
 
