@@ -546,6 +546,10 @@ int main(){
 }
  ```
 
+### Passsing Arrays to Functions
+- `void print_array(int numbers[]);`{:.C++}
+- 
+
 ## Funtion overloading
 - We can have functions that have different parameter lists that have the **same name**
 - Abstraction mechanism 
