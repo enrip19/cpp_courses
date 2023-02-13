@@ -547,8 +547,23 @@ int main(){
  ```
 
 ### Passsing Arrays to Functions
-- `void print_array(int numbers[]);`{:.C++}
-- 
+- `void foo(array_type array_name[]);`
+	- The array elements are NOT copied
+		- The array name evaluates to the location of the array in memory -> **This addres is what is copied**
+		- => The function has no idea how many elements are in the array since all it knows is the location  of the first element (the name of the array)
+``` C++
+void print_array(int numbers []);
+
+int main() {
+	int my_numbers[] {1,2,3,4,5};
+	print_array(my_numbers);
+	return 0;
+}
+
+void print_array(int_numbers[]) {
+
+}
+```
 
 ## Funtion overloading
 - We can have functions that have different parameter lists that have the **same name**
@@ -560,6 +575,11 @@ int main(){
 int add_numbers (int, int); // add ints
 double add_numbers(double, double); // add doubles
 
+int main() {
+	cout << add_numbers(10, 20) << endl; // Output: 30 -> type int
+	cout << add_numbers(10.0, 20.0) << endl; // Output: 30.0 -> type double
+}
+
 // You must declare the two versions of the function
 int add_numbers(int a, int b){
 	return a + b;
@@ -567,11 +587,6 @@ int add_numbers(int a, int b){
 
 double add_numbers(double a, double b){
 	return a + b;
-}
-
-int main() {
-	cout << add_numbers(10, 20) << endl; // Output: 30 -> type int
-	cout << add_numbers(10.0, 20.0) << endl; // Output: 30.0 -> type double
 }
 ```
 
