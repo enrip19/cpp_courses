@@ -551,17 +551,28 @@ int main(){
 	- The array elements are NOT copied
 		- The array name evaluates to the location of the array in memory -> **This addres is what is copied**
 		- => The function has no idea how many elements are in the array since all it knows is the location  of the first element (the name of the array)
+			- We must pass a **size parameter** to know how many times we have to iterate to work with the array
 ``` C++
-void print_array(int numbers []);
+void print_array(int numbers [], size_t size);
 
 int main() {
 	int my_numbers[] {1,2,3,4,5};
-	print_array(my_numbers);
+	print_array(my_numbers); // Output: 1 2 3 4 5
 	return 0;
 }
 
-void print_array(int_numbers[]) {
-
+void print_array(int_numbers[], size_t size) {
+	for (size_t i{0}; i<size; ++i)
+		cout << numbers[i] << endl;
+}
+```
+Since we are passing the location of the array
+- the function can modify the actual array!
+- To solve this we must define the array parameter as **`const`**
+```C++
+void print_array(const int numbers [], size_t size){
+	for (size_t i=0; i<size; ++i)
+		numbers[i] = 0; // COMPILER ERROR -> You are attempting to edit a const array
 }
 ```
 
