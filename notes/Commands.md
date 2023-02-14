@@ -679,6 +679,18 @@ print(); // Compiler doesn't know which function are you calling.
 // Normally it sends the next error: "Call of overloaded 'print()' is ambiguous"
 ```
 
+### Scope rules
+#### Static local variables
+```C++ 
+static int value {10};
+```
+- Value **is** preserved between function cals
+- **Only initialized the first time the function is called**
+	- If not initialized -> set to 0
+	- It will reinitialize never again when we enter again to the function
+- It's lifetime is the same as the program
+- They are only visible to the statements in the function body
+- Are usually used when is need to know a previous value in a function without having to pass it in all the time.
 ### Function templates
 
 
