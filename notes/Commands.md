@@ -545,7 +545,35 @@ int main(){
 	return 0;
 }
  ```
- 
+#### Passsing Arrays to Functions
+- `void foo(array_type array_name[]);`
+	- The array elements are NOT copied
+		- The array name evaluates to the location of the array in memory -> **This addres is what is copied**
+		- => The function has no idea how many elements are in the array since all it knows is the location  of the first element (the name of the array)
+			- We must pass a **size parameter** to know how many times we have to iterate to work with the array
+``` C++
+void print_array(int numbers [], size_t size);
+
+int main() {
+	int my_numbers[] {1,2,3,4,5};
+	print_array(my_numbers); // Output: 1 2 3 4 5
+	return 0;
+}
+
+void print_array(int_numbers[] my_numbers, size_t size) {
+	for (size_t i{0}; i<size; ++i)
+		cout << numbers[i] << endl;
+}
+```
+Since we are passing the location of the array
+- the function can modify the actual array!
+- To solve this we must define the array parameter as **`const`**
+```C++
+void print_array(const int numbers [], size_t size){
+	for (size_t i=0; i<size; ++i)
+		numbers[i] = 0; // COMPILER ERROR -> You are attempting to edit a const array
+}
+```
 ### Pass-by-reference
 Sometimes we want to be able to change the actual parameter from within the function body. In order to achieve this, **we need the location or address of the actual parameter.**
 **We can use reference parameters/arrays to tell the compiler to pass in a reference to the actual parameter.**
@@ -570,16 +598,24 @@ void scale_number (int &num) {
 }
 ```
 To avoid unwanted changes we can use the `const` keyword
-+
-
-#### Passsing Arrays to Functions
-- `void foo(array_type array_name[]);`
-	- The array elements are NOT copied
-		- The array name evaluates to the location of the array in memory -> **This addres is what is copied**
-		- => The function has no idea how many elements are in the array since all it knows is the location  of the first element (the name of the array)
-			- We must pass a **size parameter** to know how many times we have to iterate to work with the array
 ``` C++
-void print_array(int numbers [], size_t size);
+void scale_number(const int &num);
+
+int main() {
+	int number {1000};
+	scale_number(number); 
+	cout << number << endl; // Output: 100
+	return 0;
+}
+void scale_number (const int &num) {
+	if (num > 100)
+		num = 100;
+}
+```
+#### Passing Arrays by reference
+`void foo(array_type &array_name []);
+```C++
+void print_array(int numbers [] &my_numbers, size_t size);
 
 int main() {
 	int my_numbers[] {1,2,3,4,5};
@@ -587,22 +623,11 @@ int main() {
 	return 0;
 }
 
-void print_array(int_numbers[], size_t size) {
+void print_array(int_numbers[] &my_numbers, size_t size) {
 	for (size_t i{0}; i<size; ++i)
 		cout << numbers[i] << endl;
 }
 ```
-Since we are passing the location of the array
-- the function can modify the actual array!
-- To solve this we must define the array parameter as **`const`**
-```C++
-void print_array(const int numbers [], size_t size){
-	for (size_t i=0; i<size; ++i)
-		numbers[i] = 0; // COMPILER ERROR -> You are attempting to edit a const array
-}
-```
-
-
 
 ## Funtion overloading
 - We can have functions that have different parameter lists that have the **same name**
