@@ -585,6 +585,8 @@ Sometimes we want to be able to change the actual parameter from within the func
 To do it we only need to add an `&` to the parameter list:
 ```C++
 void scale_number(int &num);
+// or 
+void scale_number(int &);
 
 int main() {
 	int number {1000};
@@ -600,6 +602,8 @@ void scale_number (int &num) {
 To avoid unwanted changes we can use the `const` keyword
 ``` C++
 void scale_number(const int &num);
+// or 
+void scale_number(const int &);
 
 int main() {
 	int number {1000};
@@ -616,6 +620,8 @@ void scale_number (const int &num) {
 `void foo(array_type &array_name []);
 ```C++
 void print_array(int numbers [] &my_numbers, size_t size);
+// or
+void print_array(int numbers [] &, size_t size);
 
 int main() {
 	int my_numbers[] {1,2,3,4,5};
