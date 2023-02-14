@@ -691,6 +691,23 @@ static int value {10};
 - It's lifetime is the same as the program
 - They are only visible to the statements in the function body
 - Are usually used when is need to know a previous value in a function without having to pass it in all the time.
+```C++
+// Example
+void static_local_example(){
+	static int num {5000}; //       1st time    2n time    3rd time     ...
+	cout << num << endl; // Output:   5000        6000       7000       ...
+	nu + = 1000;
+	cout << num << endl; // Output:   6000        7000       8000       ...
+}
+
+int main(){
+	static_local_variable(); // 1st time
+	static_local_variable(); // 2nd time
+	static_local_variable(); // 3rd time
+}
+```
+> If `num` were not `static` it would have been reinicialized every time we would have used the `static_local_variable`. Thus, the output would have been `5000` and `6000`.
+
 ### Function templates
 
 
