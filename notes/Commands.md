@@ -731,8 +731,33 @@ int main() {
 	return 0;
 }
 ```
-> They are normally declared in header (.h files)  since the definition must be available to every source file that uses it
-### Function templates
+> They are normally declared in header (.h files)  since the definition must be available to every source file that uses it.
+
+## Recursive functions
+A recursive function is a function that calls itself. Either directly or indirectly through another function.
+- Recursive proble solving
+	- Base case
+	- Divide the rest of problem into subproblem and do recursive call
+- Notes about recursive functions
+	- If recursion doesn't eventually stop you will have infinite recursion
+	- Recursion can be resource intensive
+	- Remember the base case(s)
+		- They terminate the recursion
+	- Only use recursive solution when it make sense
+	- Anything that can be done recursively can be done iteratively
+		- Sometimes you can end to "Stack Overflow" error
+```C++
+unsigned long long factorial(unsigned long long n){
+	if(n==0)
+		return 1;
+	return n * factorial(n-1);
+}
+
+int main(){
+	cout << factorial(8) << endl;
+	return 0;
+}
+```
 
 
 
