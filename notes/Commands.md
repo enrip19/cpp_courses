@@ -708,6 +708,30 @@ int main(){
 ```
 > If `num` were not `static` it would have been reinicialized every time we would have used the `static_local_variable`. Thus, the output would have been `5000` and `6000`.
 
+
+## Inline functions
+- Function calls have a certain amount of overhead -> because the call stack
+- We can **suggest** to the compiler to compile them *`inline`*
+	- avoid function call overhead
+	- generate inline assembly code
+	- faster
+	- could cause code bloat (larger binaries)
+		- If you use inline many times, you are duplicating the function code in many places and it could lead to larger binaries
+- Compilers optimizations are very sophisticated 
+	- will likely inline even without your suggestions
+	- Or cannot be inline despite your suggestions
+```C++
+inline int add_numbers(int a, int  b) { 
+	return a + b;
+}
+
+int main() {
+	int result {0};
+	result = add_numbers(100, 200); 
+	return 0;
+}
+```
+> They are normally declared in header (.h files)  since the definition must be available to every source file that uses it
 ### Function templates
 
 
