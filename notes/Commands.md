@@ -545,8 +545,34 @@ int main(){
 	return 0;
 }
  ```
+ 
+### Pass-by-reference
+Sometimes we want to be able to change the actual parameter from within the function body. In order to achieve this, **we need the location or address of the actual parameter.**
+**We can use reference parameters/arrays to tell the compiler to pass in a reference to the actual parameter.**
+- Allow to change an actual parameter inside a function
+- It doesn't make a copy of the parameter 
+	- Less memory use 
+	- Faster
+- Could cause unwanted changes
+To do it we only need to add an `&` to the parameter list:
+```C++
+void scale_number(int &num);
 
-### Passsing Arrays to Functions
+int main() {
+	int number {1000};
+	scale_number(number); 
+	cout << number << endl; // Output: 100
+	return 0;
+}
+void scale_number (int &num) {
+	if (numb > 100)
+		num = 100;
+}
+```
+To avoid unwanted changes we can use the `const` keyword
++
+
+#### Passsing Arrays to Functions
 - `void foo(array_type array_name[]);`
 	- The array elements are NOT copied
 		- The array name evaluates to the location of the array in memory -> **This addres is what is copied**
@@ -575,6 +601,8 @@ void print_array(const int numbers [], size_t size){
 		numbers[i] = 0; // COMPILER ERROR -> You are attempting to edit a const array
 }
 ```
+
+
 
 ## Funtion overloading
 - We can have functions that have different parameter lists that have the **same name**
