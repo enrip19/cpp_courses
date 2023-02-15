@@ -944,6 +944,17 @@ A reference is an alias for a variable
 - Very useful as function parameters
 - Might be helpful to think of a reference as a constant pointer that is automatically dereferenced
 ## References in range-based for loops
+Non-reference for loop
+```C++
+vector<string> stooges {"Larry", "Moe", "Curly"};
+
+for (auto str: stooges) // It is doing a copy of stooges
+	str = "Funny"; // changes the copy!!!
+
+for (auto str: stooges) // It is doing a copy of stooges
+	cout << str << endl; // Output: Larry, Moe, Curly -> (nothing has changed)
+```
+Referenced for loop
 ```C++
 vector<string> stooges {"Larry", "Moe", "Curly"};
 
@@ -953,3 +964,5 @@ for (auto &str: stooges)
 for (auto str: stooges)
 	cout << str << endl; // Output: Funny, Funny, Funny
 ```
+## References in function parameters
+Refer to [Functions section -> Pass-by-reference subsection](#Functions#Pass-by-reference)
