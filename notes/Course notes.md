@@ -1006,6 +1006,7 @@ name = "Frank";
 	- difficult to reuse code
 	- fragile and easier to break
 ## What is OOP?
+### Pros
 - Modeling the software in Classes and Objects
 	- focus is on classes that model real-world domain entities
 	- allows developers to think at a higher level of abstraction
@@ -1019,4 +1020,35 @@ name = "Frank";
 	- users of the class code to the interface since they don't need to know the implementation
 	- more abstraction
 	- easier tot test, debug, maintain and extend
-- 
+- Reusability
+	- easier to reuse classes in other applications
+	- faster development
+	- higher quality
+- Inheritance
+	- can create new classes in term of existing classes
+	- reusability
+	- polymorphic classes
+- Plymorphism
+- etc
+### Limitations
+- Not a panacea
+	- OOP won't make bad code better
+	- not suitable for all types of problems
+	- not everything decomposes to a class
+- Learing curve
+	- usually a steeper learning curve, especially fo C++
+	- many OO languages, many variations of OO concepts
+- Design
+	- usually more up-front design is necessary to create good models and hierarchies
+- Programs can be:
+	- larger in size
+	- slower
+	- more complex
+## Classes and Objects
+### Classes
+- blueprint from which objects are created
+- a user-defined data-type
+- has attributes (data)
+- has methods (functions)
+- can hide data and methods
+- provides a public interface
