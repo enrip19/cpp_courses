@@ -992,3 +992,31 @@ name = "Frank";
 	- A litteral
 	- A temporary which is intended to be non-modifiable
 - Can be assigne to L-values explicitly
+
+--- 
+# Object-Oriented Programming (OOP)
+## Procedural programming limitations
+- Functions need to know the structure of the data
+	- if the structure of the data changes many functions must be changed
+- As programs get larger they become more:
+	- difficult to understand
+	- difficult to maintain
+	- difficult to extend
+	- difficult to debug
+	- difficult to reuse code
+	- fragile and easier to break
+## What is OOP?
+- Modeling the software in Classes and Objects
+	- focus is on classes that model real-world domain entities
+	- allows developers to think at a higher level of abstraction
+	- used successfully in very large programs
+- Encapsulation
+	- objects contain data AND operations that work on that data
+	- An extension of Abstract Data Type (ADT)
+	- Helps dealing the complexity
+- Information-hiding
+	- implementation-specific logic can be hidden
+	- users of the class code to the interface since they don't need to know the implementation
+	- more abstraction
+	- easier tot test, debug, maintain and extend
+- 
