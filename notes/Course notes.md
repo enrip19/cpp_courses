@@ -929,4 +929,27 @@ int *int_ptr; // pointing anywhere
 ### Not checking if `new` failed
 - If `new` fails an exception is thrown
 	- We can use exception handling to catch them
-	- 
+- Dereferencing a  null pointer will cause your program to crash
+### Memory leaking (orphaned/leaked memory)
+- Forgetting to release allocated memory with `delete`
+- If you lose your pointer to the storage allocated on the heap you have not way to get to that storage again
+	- Example: You have allocated the memory in a function and the pointer was declared int the function. Thus, it is a local pointer which will be destroyed when the function terminates. You just lost your pointer. There's no way you can reference that allocated memory on the heap. -> Memory leak
+> This is one of the most common pointer problems
+
+# Reference
+A reference is an alias for a variable
+- Must be initialized to a variable when declared
+- Cannot be null
+- Once initialized ccannot be mad to refer to a different variable
+- Very useful as function parameters
+- Might be helpful to think of a reference as a constant pointer that is automatically dereferenced
+## References in range-based for loops
+```C++
+vector<string> stooges {"Larry", "Moe", "Curly"};
+
+for (auto &str: stooges)
+	str = "Funny"; // changes the actual
+
+for (auto str: stooges)
+	cout << str << endl; // Output: Funny, Funny, Funny
+```
