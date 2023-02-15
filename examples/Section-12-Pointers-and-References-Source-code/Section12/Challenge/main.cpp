@@ -42,10 +42,18 @@
 
 using namespace std;
 
-int *apply_all(int *arr1[], int *arr2[]) {
+int *apply_all(int arr1[], size_t size1, int arr2[], size_t size2) {
+  int *array_ptr{nullptr};
 
-  new
+  array_ptr = new int[size1 * size2];
 
+  for (size_t i = 0; i < size2; i++) {
+    *(array_ptr + i) = arr1[i] * arr2[i];
+    cout << "i: " << i << ", arr1: " << arr1[i] << ", arr2: " << arr2[i]
+         << ", *array_ptr: " << *(array_ptr + i) << endl;
+  }
+
+  return array_ptr;
 }
 
 int main() {
@@ -55,17 +63,17 @@ int main() {
   int array1[]{1, 2, 3, 4, 5};
   int array2[]{10, 20, 30};
 
-  cout << "Array 1: ";
-  print(array1, array1_size);
+  // cout << "Array 1: ";
+  // print(array1, array1_size);
 
-  cout << "Array 2: ";
-  print(array2, array2_size);
+  // cout << "Array 2: ";
+  // print(array2, array2_size);
 
   int *results = apply_all(array1, array1_size, array2, array2_size);
   constexpr size_t results_size{array1_size * array2_size};
 
-  cout << "Result: ";
-  print(results, results_size);
+  // cout << "Result: ";
+  // print(results, results_size);
 
   cout << endl;
 
