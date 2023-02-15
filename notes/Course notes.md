@@ -895,5 +895,38 @@ int * create_array(size_t size, int init_value = 0){
 	new_storage = new int[size];
 
 	for (size_t i{0}; i < size; ++i)
-		*(/*
+		*(new_storage + i) = init_value;
+
+	return new_storage;
 }
+
+int main() {
+	int *my_array; // will be allocated by the function
+
+	my_array = create_array(100,20); // create the array
+
+	// use the array
+	...
+
+	delete[] my_array; // be sure to free the storage
+	return 0;
+}
+```
+## Potential Pointer Pitfalls
+### Uninitialized pointers
+``` C++
+int *int_ptr; // pointing anywhere
+
+...
+
+*int_ptr = 100; // Hopefully crash -> The pointer might be pointing to a very important area and doing this you are modifying or wiping out.
+```
+### Dangling pointer (wild/stray pointers)
+- Pointer that is pointing to released memory:
+	- For example, 2 pointers point to the same data. 1 pointer releases the data with `delete`. The other pointer accesses the released data.
+- Pointer that points to memory that is invalid
+	- For example a returned pointer to a function local variable
+### Not checking if `new` failed
+- If `new` fails an exception is thrown
+	- We can use exception handling to catch them
+	- 
