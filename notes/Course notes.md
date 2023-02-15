@@ -776,6 +776,18 @@ Allocating storage from the heap at runtime
 - We can allocate storage for a variable at run time
 - We can use pointers to access newly allocated heap storage
 ### `new` keyword
-`new 
+`new` is used to allocate storage:
+```C++
+int *int_ptr {nullptr};
 
+int_ptr = new int; // allocate an integer on the heap
 
+cout << int_ptr << endl; // Output: 0x2747f28
+cout << *int_ptr << endl; // Output: 41188048 -> garbage because the allocated integer is not initialized yet
+
+*int_ptr = 100;
+cout << *int_ptr << endl; // Output: 100
+```
+> IMPORTANT REMARKS:
+> - The integer doesn't have name. **The only way to address it is by it's pointer**
+> - If we loose or reassign the pointer there is no way to get the integer data or assign new data to it.
