@@ -793,6 +793,7 @@ cout << *int_ptr << endl; // Output: 100
 > - The integer doesn't have name. **The only way to address it is by it's pointer**
 > - If we loose or reassign the pointer there is no way to get the integer data or assign new data to it. -> MEMORY LEAK
 > - When we are done with the allocated storage, we mus deallocate it. This makes that storage available to the rest of the program
+
 ### Deallocation
 #### `delete` keyword
 `delete` is used to deallocate storage
@@ -806,3 +807,27 @@ int_ptr = new_int; // allocate an integer on the heap
 delete int_ptr; // frees the allocated storage
 ```
 
+### Array allocation/deallocation
+For arrays we will use `new[]` and `delete[]` keywords
+```C++
+int *array_ptr {nullptr};
+int size {};
+
+cout << "How big do you want the array? ";
+cin >> size;
+
+array_ptr = new int[size]; // allocate array on the heap
+
+// We can access the array here
+... 
+
+delete[] array_ptr; // free allocated storage
+```
+> Note that for `delete[]` we don't need to write the size
+
+### `const` qualifier in pointers
+There are several ways to qualify pointers using `conts` keyword:
+#### Pointers to constants
+The data pointed to by the pointers is
+#### Constant pointers
+#### Constant pointers to constants
