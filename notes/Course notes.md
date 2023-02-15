@@ -966,3 +966,22 @@ for (auto str: stooges)
 ```
 ## References in function parameters
 Refer to [Functions section -> Pass-by-reference subsection](#Functions#Pass-by-reference)
+
+# L-values and R-values
+## L-values
+- Values that have names and are addressable
+- Modifiable if they are not constatns
+```C++
+int x {100}; // x is an l-value
+x = 1000;
+x = 1000 + 20;
+
+100 = x; // 100 is NOT an l-value
+(1000 + 20) = x; // (1000 + 20) is NOT an l-value
+
+string name; // name is an l-value
+name = "Frank";
+
+"Frank" = name; // "Frank" is NOT an l-value
+```
+
