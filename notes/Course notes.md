@@ -1052,3 +1052,47 @@ name = "Frank";
 - has methods (functions)
 - can hide data and methods
 - provides a public interface
+### Objects
+- created from a class
+- represents a specific instance of a class
+- can create many, many objects
+- each has its own identity
+- each can use the defined class methods
+### Declaring a class
+```C++
+class Class_Name
+{
+	// declarations
+};
+
+// Example
+class Player
+{
+	// attributes
+	std::string name;
+	int health;
+	int xp;
+
+	// methods
+	void talk(std::string text_to_say);
+	bool is_dead();
+};
+```
+### Creating objects
+```C++
+// Creating objects
+Player frank;
+Player jim;
+
+// Creating pointers to objects -> dynamically allocation of objects to the heap
+Player *enemy = new Player();
+delete enemy;
+
+// Creating array of objects
+Player players[] {frank, jim};
+
+// Creating vector of objects
+std::vector <Player> players {frank};
+players.push_back(jim);
+```
+
