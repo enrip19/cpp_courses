@@ -1095,4 +1095,23 @@ Player players[] {frank, jim};
 std::vector <Player> players {frank};
 players.push_back(jim);
 ```
+### Accessing Class Members
+- We can access 
+	- class attributes
+	- class methods
+- Some class members will not be accessible 
+- We need an object to access instance variables
+#### Objects (dot operator)
+If we have an object we can use dot operator:
+``` C++
+Account frank_account;
+
+frank_account.balance; // accessing to an attribute
+frank_account.deposit(1000.00); // accessing to a method
+```
+#### Pointers to objects (dot operator or arrow operator)
+If we have a pointer to object (member of pointer operator) we can use two techniques:
+- Dereference the pointer and then use the dot operator
+- Use the member of pointer operator `->` (arrow operator)
+
 
