@@ -775,7 +775,8 @@ Allocating storage from the heap at runtime
 - We often don't know how much storage we need until we need it
 - We can allocate storage for a variable at run time
 - We can use pointers to access newly allocated heap storage
-### `new` keyword
+### Allocation
+#### `new` keyword
 `new` is used to allocate storage:
 ```C++
 int *int_ptr {nullptr};
@@ -790,4 +791,18 @@ cout << *int_ptr << endl; // Output: 100
 ```
 > IMPORTANT REMARKS:
 > - The integer doesn't have name. **The only way to address it is by it's pointer**
-> - If we loose or reassign the pointer there is no way to get the integer data or assign new data to it.
+> - If we loose or reassign the pointer there is no way to get the integer data or assign new data to it. -> MEMORY LEAK
+> - When we are done with the allocated storage, we mus deallocate it. This makes that storage available to the rest of the program
+### Deallocation
+#### `delete` keyword
+`delete` is used to deallocate storage
+```C++
+int *int_ptr {nullptr};
+
+int_ptr = new_int; // allocate an integer on the heap
+
+...
+
+delete int_ptr; // frees the allocated storage
+```
+
