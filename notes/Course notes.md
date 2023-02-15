@@ -863,3 +863,18 @@ score_ptr = &low_score // ERROR
 ```
 - The data pointed to by the pointers is constant **cannot** be changed.
 - The pointer itself **cannot** change and point somewhere else.
+## Passing pointers to a function (pass-by-reference)
+```C++
+void double_data (int *int_ptr);
+
+voit double_data (int *int_ptr){
+	*int_ptr *= 2;	
+}
+
+int main() {
+	int value {10};
+	cout << value << endl; // Output: 10
+	double_data(&value);
+	cout << value << endl; // Output: 20
+}
+```
