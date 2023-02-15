@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/Commands.md",
+                "file": "notes/Course notes.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/Commands.md",
+                "file": "notes/Course notes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "notes/Commands.md",
+                "file": "notes/Course notes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/Commands.md"
+                "file": "notes/Course notes.md"
               }
             }
           },
@@ -142,7 +142,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 446.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -155,10 +155,10 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "5295fb40e9f1ead7",
+  "active": "fb8ba538f6a71cd5",
   "lastOpenFiles": [
     "notes/Links of interest.md",
-    "notes/Commands.md",
+    "notes/Course notes.md",
     "en.cppreference.com/w/cpp/keyword.md"
   ]
 }
