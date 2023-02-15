@@ -976,17 +976,19 @@ int x {100}; // x is an l-value
 x = 1000;
 x = 1000 + 20;
 
-100 = x; // 100 is NOT an l-value -> r-value
-(1000 + 20) = x; // (1000 + 20) is NOT an l-value -> r-value
+100 = x; // 100 is NOT an l-value -> is an r-value
+(1000 + 20) = x; // (1000 + 20) is NOT an l-value -> is an r-value
 
 string name; // name is an l-value
 name = "Frank";
 
-"Frank" = name; // "Frank" is NOT an l-value -> r-value
+"Frank" = name; // "Frank" is NOT an l-value -> is an r-value
 ```
-
+#### L-value references
+- They are the references we have used because we are referencing L-values
 ## R-values
 - Non-addressable and non-assignable values (values that aren't an L-value) 
 	- On the right-hand side of an assignment expression
 	- A litteral
 	- A temporary which is intended to be non-modifiable
+- Can be assigne to L-values explicitly
