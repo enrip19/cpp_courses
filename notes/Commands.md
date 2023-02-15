@@ -760,4 +760,12 @@ int main(){
 ```
 
 
-
+# Pointers
+## Declaring pointers
+``` C++
+variable_type * pointer_name {nullptr};
+```
+- Always initialize pointers
+- Uninitialized pointers contain garbage data and can point anywhere
+- Initializing pointer to zero or `nullptr` represents address zero
+- **If you don't initialize a pointer to point to a variable or function then you should initialize it to `nullptr` to "make it null"**
