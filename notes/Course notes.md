@@ -761,11 +761,21 @@ int main(){
 
 
 # Pointers
-## Declaring pointers
+Work same as C
+## Always initialize pointers 
 ``` C++
 variable_type * pointer_name {nullptr};
 ```
 - Always initialize pointers
 - Uninitialized pointers contain garbage data and can point anywhere
 - Initializing pointer to zero or `nullptr` represents address zero
-- **If you don't initialize a pointer to point to a variable or function then you should initialize it to `nullptr` to "make it null"**
+- **If you don't initialize a pointer to point to a variable or function then you should initialize it to `nullptr` to "make it null"** 
+## Dynamic memory allocation
+Allocating storage from the heap at runtime
+- We often don't know how much storage we need until we need it
+- We can allocate storage for a variable at run time
+- We can use pointers to access newly allocated heap storage
+### `new` keyword
+`new 
+
+
