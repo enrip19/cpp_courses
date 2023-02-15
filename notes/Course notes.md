@@ -878,3 +878,22 @@ int main() {
 	cout << value << endl; // Output: 20
 }
 ```
+> Note that with pointers, the pass-by-reference technique obligates us to **explicitly pass the address ourselfs.**
+> This is different with the variables (with the `&`) which the compiler do that for us automatically
+## Returning a pointer from a function
+```C++
+type * function();
+```
+- Should return pointers to:
+	- Memory dynamically allocated in the function
+	- Data that was passed in
+- Never return a pointer to a local function variable!
+``` C++
+// Example of a returning dynamically allocated memory
+int * create_array(size_t size, int init_value = 0){
+	int *new_storage {nullptr};
+	new_storage = new int[size];
+
+	for (size_t i{0}; i < size; ++i)
+		*(/*
+}
