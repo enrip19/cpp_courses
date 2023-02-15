@@ -825,7 +825,7 @@ delete[] array_ptr; // free allocated storage
 ```
 > Note that for `delete[]` we don't need to write the size
 
-### `const` qualifier in pointers
+## `const` qualifier in pointers
 There are several ways to qualify pointers using `conts` keyword:
 #### Pointers to constants
 ```C++
@@ -867,7 +867,7 @@ score_ptr = &low_score // ERROR
 ```C++
 void double_data (int *int_ptr);
 
-voit double_data (int *int_ptr){
+void double_data (int *int_ptr){
 	*int_ptr *= 2;	
 }
 
