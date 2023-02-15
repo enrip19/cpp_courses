@@ -828,6 +828,38 @@ delete[] array_ptr; // free allocated storage
 ### `const` qualifier in pointers
 There are several ways to qualify pointers using `conts` keyword:
 #### Pointers to constants
-The data pointed to by the pointers is
+```C++
+int high_score {100};
+int low_score {65};
+
+const int *score_ptr {&high_score};
+
+*score_ptr = 86; // ERROR
+score_ptr = &low_score // OK
+```
+- The data pointed to by the pointers is constant and **cannot** be changed.
+- The pointer itself can change and point somewhere else.
 #### Constant pointers
+```C++ 
+int high_score {100};
+int low_score {65};
+
+int *const score_ptr {&high_score};
+
+*score_ptr = 86; // OK
+score_ptr = &low_score // ERROR
+```
+- The data pointed to by the pointers can be changed.
+- The pointer itself **cannot** change and point somewhere else.
 #### Constant pointers to constants
+```C++ 
+int high_score {100};
+int low_score {65};
+
+const int *const score_ptr {&high_score};
+
+*score_ptr = 86; // ERROR
+score_ptr = &low_score // ERROR
+```
+- The data pointed to by the pointers is constant **cannot** be changed.
+- The pointer itself **cannot** change and point somewhere else.
