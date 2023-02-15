@@ -47,12 +47,13 @@ int *apply_all(int arr1[], size_t size1, int arr2[], size_t size2) {
 
   array_ptr = new int[size1 * size2];
 
-  for (size_t i = 0; i < size1; i++) {
-    for (size_t j = 0; j < size2; j++) {
-      *(array_ptr + j + (i*size2) = arr1[i] * arr2[j];
-      cout << "i: " << i << ", j: " << j << ", arr1: " << arr1[j]
-           << ", arr2: " << arr2[i] << ", *array_ptr: " << *(array_ptr + i)
-           << endl;
+  for (size_t i = 0; i < size2; i++) {
+    for (size_t j = 0; j < size1; j++) {
+      *(array_ptr + j + (i * size1)) = arr2[i] * arr1[j];
+      array_ptr[j+(i*size1)] = arr2[i] * arr1[j];
+      // cout << "i: " << i << ", j: " << j << ", arr1: " << arr1[j]
+      //      << ", arr2: " << arr2[i] << ", *array_ptr: " << *(array_ptr + i)
+      //      << endl;
     }
   }
 
@@ -62,10 +63,9 @@ int *apply_all(int arr1[], size_t size1, int arr2[], size_t size2) {
 void print(int arr[], size_t size) {
   cout << "[ ";
   for (size_t i = 0; i < size; i++) {
-    if (i == size - 1) cout << " ]" << endl;
-
     cout << arr[i] << " ";
   }
+  cout << "]" << endl;
 }
 
 int main() {
