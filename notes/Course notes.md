@@ -1112,6 +1112,18 @@ frank_account.deposit(1000.00); // accessing to a method
 #### Pointers to objects (dot operator or arrow operator)
 If we have a pointer to object (member of pointer operator) we can use two techniques:
 - Dereference the pointer and then use the dot operator
-- Use the member of pointer operator `->` (arrow operator)
+- Use the member of pointer operator: **`->`** (arrow operator)
+	- It will dereference the pointer and then apply the dot operator (automatically)
+```C++
+Account *frank_account = new Account();
+
+// Dereference + dot operator
+(*frank_account).balance;
+(*frank_account).deposit(1000.00),
+
+// Arrow operator
+frank_account -> balance;
+frank_accout -> deposit(1000.00);
+```
 
 
