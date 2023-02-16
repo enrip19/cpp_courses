@@ -1429,6 +1429,17 @@ int main() {
 
 // As you can see, we can initialize all what we could intialize before but only defining one constructor.
 ```
-> It is important to say that this method only works for attribute 
-
-
+> It is important to say that this method only works for attribute initialization. To have multiple functionalities between the differents constructors you must define them separatly.
+#### Copy constructor
+- When objects are copie C++ must create a new object from an existing object
+- Copy of an object is made when:
+	- passing object by value as a parameter
+```C++
+Player hero {"Hero",100,20};
+void display_player(Player_p){ 
+	// inside the function there is a copy of hero named p (that is local)
+}
+```
+	- returning an object from a function by value
+	- constructing one object based on another of the same class
+- C++ must have a way of accomplishing this so it provides a compiler-defined copy constructor if you don't provide it.
