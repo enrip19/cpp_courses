@@ -1242,7 +1242,8 @@ int main() {
 ---------------------------------------------------------------------------------
 ```
 ## Constructors  and destructors
-> Constructors and destructors are defined same as methods (can be inside-class or outside-class)
+> Constructors and destructors are defined same as methods (can be inside-class or outside-class). 
+> Their parameters follow the same rules as functions.
 ``` C++
 class Player
 {
@@ -1260,19 +1261,19 @@ public:
 };
 
 // Constructors definitions
-Player()::Player(){
+Player::Player(){
 	name = "None";
 	health = 0;
 	xp = 0;
 }
 
-Player()::Player(std:string name_val){
+Player::Player(std:string name_val){
 	name = name_val;
 	health = 0;
 	xp = 0;
 }
 
-Player()::Player(std::string name_val, int health_val, int xp_val){
+Player::Player(std::string name_val, int health_val, int xp_val){
 	name = name_val;
 	health = health_val;
 	xp = xp_val;
@@ -1353,10 +1354,12 @@ Player::Player():name{"None"}, health{0}, xp{0}{
 	//constructor body
 }
 
-Player::Player():name{name_val}, health{0}, xp{0}{
+Player::Player(std::string name_val)
+	:name{name_val}, health{0}, xp{0}{
 }
 
-Player::Player():name{name_val}, health{health_val}, xp{xp_val}{
+Player::Player(std::string name_val, int health_val, int xp_val)
+	:name{name_val}, health{health_val}, xp{xp_val}{
 }
 ```
 #### Delegating constructors
@@ -1364,9 +1367,26 @@ Often the code for constructors is very similar. Duplicated code can lead to err
 - Code for one constructor can call another in the initialization list
 - avoids duplicating code
 ```C++
-// Starting from the last example c
-```
+// Starting from the last example code
+// Player class is declared 
+// The constructors will be different -> Delegating constructors
 
+// Player constructor 1
+Player::Player()
+	:Player{"None",0,0}{
+}
+// Player constructor 2
+Player::Player(std::string name_val)
+	:Player{name_val, 0, 0}{
+}
+// Player constructor 3
+Player::Player(std::string name_val, int health_val, int xp_val) 
+	:name{name_val}, health{health_val}, xp{xp_val}{ 
+}
+
+// As you can see, the two last constructors we don't need to put all attributes in the initialization list since C++ catches them all automatically. Simply add the constructor name and a list with the values you want for the constructor.
+```
+> What we really are doing here is to call Player constructor 3 when we define the other constructors. So we are delegating the definition of the other constructor to the Player constructor 3.
 
 
 
