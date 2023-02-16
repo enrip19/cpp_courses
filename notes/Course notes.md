@@ -1127,7 +1127,6 @@ frank_accout -> deposit(1000.00);
 ```
 
 ## Class member access modifiers
-Class member access modifiers help into debugging. If you put the attribut
 - `public`
 	- accessible everywhere
 - `private`
@@ -1169,4 +1168,50 @@ int main() {
 	return 0;
 }
 ```
+
+> Class member access modifiers help into debugging. If you put the attributes to private access and use methods to modify them, you will always know that if there is an error in an attribute, the bug will be located to the method which edits it.
+
+### Implement member Methods
+- Similar to how implement functions
+- Member methods have access to member attributes
+	- Don't need to pass arguments
+- Can be implemented 
+	- inside the class declaration -> Implicitly `inline`
+	- outside the class declaration -> need to use `Class_name::method_name`
+- Can separate specification from implementation
+	- **.h file** for the class declaration
+	- **.cpp file** for the class implementation
+#### Inside-class method declaration
+```C++
+class Account {
+private:
+	double balance;
+public:
+	void set_balance(double bal){ // setter
+		balance = bal;
+	}
+
+	double get_balance() { // getter
+		return balance;
+	}
+};
+```
+#### Outside-class method declaration
+``` C++
+														_
+class Account {                                          |
+private:                                                 |
+	double balance;                                      |
+														 |
+public:                                                  |
+	void set_balance(double bal);                        |
+	double get_balance();
+};
+
+void Account::set_balance(double bal){ // setter
+		balance = bal;
+}
+double Account::get_balance() { // getter
+		return balance;
+	}
 
