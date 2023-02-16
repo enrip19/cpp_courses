@@ -1335,7 +1335,7 @@ public:
 	// Overloaded Constructors declaration
 	Player(); // constructor 1
 	Player(std::string name_val); // constructor 2
-	Player(std::string name_val="None", int health_val=0, int xp_val=0); // constructor 3
+	Player(std::string name_val, int health_val, int xp_val); // constructor 3
 	// Destructor declaration
 	~Player();
 };
@@ -1387,7 +1387,48 @@ Player::Player(std::string name_val, int health_val, int xp_val)
 // As you can see, the two last constructors we don't need to put all attributes in the initialization list since C++ catches them all automatically. Simply add the constructor name and a list with the values you want for the constructor.
 ```
 > What we really are doing here is to call Player constructor 3 when we define the other constructors. So we are delegating the definition of the other constructor to the Player constructor 3.
+#### Constructors with default parameters
+With delegating constructors we achived a way to do not have to write multiple times the same code, but we still to define multiple constructors if we want to have constructors for more parameters. 
+If we define a constructor with **default parameters** we can obviate the definition of all constructors with same parameters but do not have the same number of parameters:
+```C++
+class Player
+{
+private: 
+	std::string name;
+	int health;
+	int xp;
+public:
+	// Overloaded Constructors declaration
+	//Player(); // constructor 1
+	//Player(std::string name_val); // constructor 2
+	Player(std::string name_val="None", int health_val=0, int xp_val=0); // constructor 3
+	// Destructor declaration
+	~Player();
+};
+// As you can see, the prototype of the constructor has default parameters. It means that the constructor 1 and 2 we had in the other examples have been replaced by the 3rd constructor definition.
 
+// Player constructor 1
+//Player::Player()
+//	:Player{"None",0,0}{
+//}
+// Player constructor 2
+//Player::Player(std::string name_val)
+//	:Player{name_val, 0, 0}{
+//}
+// Player constructor 3
+Player::Player(std::string name_val, int health_val, int xp_val) 
+	:name{name_val}, health{health_val}, xp{xp_val}{ 
+}
 
+int main() {
+	Player empty; // It will generate a Player with name=None, health=0 and xp=0
+	Player frank{"Frank"} // a Player with name=Frank, health=0 and xp=0
+	Player hero{"Hero",100}; // a Player with name=Hero, health=100 and xp=0
+	Player villain{"Villain",100,50}; // a Player with name=Villain, health=100 and xp=50
+}
+
+// As you can see, we can initialize all what we could intialize before but only defining one constructor.
+```
+> It is important to say that this method only works for attribute 
 
 
