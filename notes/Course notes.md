@@ -1202,7 +1202,7 @@ public:
 #ifndef _ACCOUNT_H_
 #define _ACCOUNT_H_ -> This is C-style
 
-#pragma once -> This is modern C++ style
+#pragma once -> This is modern C++ style (not always supported by the compiler)
 
 class Account {
 private:
@@ -1219,10 +1219,10 @@ public:
 -------------------------- Account.cpp file -------------------------------------
 #include "Account.h" 
 
-void Account::set_balance(double bal){ // setter
+void Account::set_balance(double bal){ // setter method
 	balance = bal;
 }
-double Account::get_balance() { // getter
+double Account::get_balance() { // getter method
 	return balance;
 }
 ---------------------------------------------------------------------------------
@@ -1241,3 +1241,17 @@ int main() {
 }
 ---------------------------------------------------------------------------------
 ```
+## Constructors 
+- Special member method
+- Invoked during object creation
+- Useful for initialization
+- Same name as the class
+- No return type is specified
+- Can be overloaded
+``` C++
+class Player
+{
+private: 
+	
+}
+## Destructors
