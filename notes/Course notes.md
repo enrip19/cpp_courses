@@ -1507,4 +1507,13 @@ Player::Player(std::string name_val, int health_val, int xp_val)
 Player::Player(const Player &source)
 	: name{source.name}, health{source.health}, xp{source.xp } 
 {
+	cout << "Copying the: " << source.name << endl;
 }
+
+// Or you can use delegation to define the copy constructor:
+Player::Player(const Player &source)
+	: Player {source.name, source.health, source.xp}
+{
+	cout << "Copying the: " << source.name << endl;
+}
+```
