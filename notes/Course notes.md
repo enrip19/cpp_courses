@@ -1248,10 +1248,45 @@ int main() {
 - Same name as the class
 - No return type is specified
 - Can be overloaded
+## Destructors
+- Special member method
+- Invoked automatically when an object is destroyed (out of scope or `delete`)
+- Useful to release memory and other resources
+- Same name as the class proceeded with a tilde (~)
+- No return type and no parameters
+- Can NOT be overloaded
 ``` C++
 class Player
 {
 private: 
-	
+	std::string name;
+	int health;
+	int xp;
+public:
+	// Overloaded Constructors declaration
+	Player(); // constructor 1
+	Player(std::string name); // constructor 2
+	Player(std::string name, int health, int xp); // constructor 3
+	// Destructor declaration
+	~Player();
+};
+
+void foo(){
+	// Declaring 4 Player-type objects
+	Player slayer; // constructor 1 called
+	Player frank {"Frank", 100, 4}; // constructor 3 called
+	Player hero {"Hero"}; // constructor 2 called
+	Player villain {"Villain"}; // constructor 2 called
+} // 4 destructors called
+
+int main() {
+	foo(); // refer to function declaration above
+
+	Player *enemy = new Player("Enemy", 1000, 0); // constructor 3 called
+
+	delete enemy; // destructor called
+
 }
-## Destructors
+```
+
+> If no constructor or/and destructor are declared, C++ provide a default constructor or/and destructor that are empty
