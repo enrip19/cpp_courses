@@ -1241,21 +1241,7 @@ int main() {
 }
 ---------------------------------------------------------------------------------
 ```
-## Constructors 
-- Special member method
-- Invoked during object creation
-- Useful for initialization
-- Same name as the class
-- No return type is specified
-- Can be overloaded
-## Destructors
-- Special member method
-- Invoked automatically when an object is destroyed (out of scope or `delete`)
-- Useful to release memory and other resources
-- Same name as the class proceeded with a tilde (~)
-- No return type and no parameters
-- Can NOT be overloaded
-> Constructors and destructors are defined same as methods (can be inside-class or outside-class)
+## Constructors  and destructors
 ``` C++
 class Player
 {
@@ -1266,11 +1252,22 @@ private:
 public:
 	// Overloaded Constructors declaration
 	Player(); // constructor 1
-	Player(std::string name); // constructor 2
-	Player(std::string name, int health, int xp); // constructor 3
+	Player(std::string name_val); // constructor 2
+	Player(std::string name_val, int health_val, int xp_val); // constructor 3
 	// Destructor declaration
 	~Player();
 };
+
+Player()::Player(){
+	name = "None";
+	health = 0;
+	xp = 0;
+}
+
+Player()::Player(std:string name_val){
+	name = name_val;
+	health = 0
+}
 
 void foo(){
 	// Declaring 4 Player-type objects
@@ -1289,10 +1286,52 @@ int main() {
 
 }
 ```
-
-### Default constructor (no-args constructor)
+### Constructors
+- Special member method
+- Invoked during object creation
+- Useful for initialization
+- Same name as the class
+- No return type is specified
+- Can be overloaded
+#### Default constructor (no-args constructor)
 > If no constructor or/and destructor are declared, C++ provide a default constructor or/and destructor that are empty. 
 > 
 > ATTENTION: If you declare a constructor with arguments, it will not generate a no-args constructor. A compiler error will rise!
 - Does not expect any arguments
 - Called when you instantiate a new object with no arguments
+#### Constructor initialization lists
+So far, all data member values have been set in the constructor body. But there is a better way to do it: **the construction initialization lists** 
+- are more efficient 
+- initialization list immediately follows the parameter list
+- initializes the data members as the object is created
+- order of initialization is the order of declaration in the class
+``` C++
+class Player
+{
+private: 
+	std::string name;
+	int health;
+	int xp;
+public:
+	// Overloaded Constructors declaration
+	Player(); // constructor 1
+	Player(std::string name_val); // constructor 2
+	Player(std::string name_val, int health_val, int xp_val); // constructor 3
+	// Destructor declaration
+	~Player();
+};
+
+Player::Player():
+
+
+```
+### Destructors
+- Special member method
+- Invoked automatically when an object is destroyed (out of scope or `delete`)
+- Useful to release memory and other resources
+- Same name as the class proceeded with a tilde (~)
+- No return type and no parameters
+- Can NOT be overloaded
+> Constructors and destructors are defined same as methods (can be inside-class or outside-class)
+
+
