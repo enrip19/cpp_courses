@@ -1126,4 +1126,47 @@ frank_account -> balance;
 frank_accout -> deposit(1000.00);
 ```
 
+## Class member access modifiers
+Class member access modifiers help into debugging. If you put the attribut
+- `public`
+	- accessible everywhere
+- `private`
+	- accessible only by members or friends of the class
+	- if you try to access to a private class member from outside the class you get a compiler error
+- `protected`
+	- used with inheritance
+``` C++
+class Class_Name
+{
+private:
+	// declarations
+protected:
+	// declarations
+public:
+	// declarations
+};
+
+// Example:
+class Player {
+private:
+	// attributes
+	string name {"Player"};
+	int health;
+	int xp;
+public:
+	//methods
+	void talk(string text_to_say) { cout << name << "says " << text_to_say << endl;}
+	bool is_dead()
+};
+
+int main() {
+	Player player1;
+	
+	player1.name = "Player1"; // Compiler ERROR
+	cout << player1.health << endl; // Compiler ERROR
+	player1.talk("Hello world"); // Output: Player says Hello world
+
+	return 0;
+}
+```
 
