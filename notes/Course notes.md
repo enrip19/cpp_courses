@@ -1289,4 +1289,7 @@ int main() {
 }
 ```
 
+### Default constructor (no-args constructor)
 > If no constructor or/and destructor are declared, C++ provide a default constructor or/and destructor that are empty
+- Does not expect any arguments
+- Called when you instantiate a new object with no arguments
