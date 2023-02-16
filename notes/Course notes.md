@@ -1242,6 +1242,7 @@ int main() {
 ---------------------------------------------------------------------------------
 ```
 ## Constructors  and destructors
+> Constructors and destructors are defined same as methods (can be inside-class or outside-class)
 ``` C++
 class Player
 {
@@ -1258,6 +1259,7 @@ public:
 	~Player();
 };
 
+// Constructors definitions
 Player()::Player(){
 	name = "None";
 	health = 0;
@@ -1266,9 +1268,17 @@ Player()::Player(){
 
 Player()::Player(std:string name_val){
 	name = name_val;
-	health = 0
+	health = 0;
+	xp = 0;
 }
 
+Player()::Player(std::string name_val, int health_val, int xp_val){
+	name = name_val;
+	health = health_val;
+	xp = xp_val;
+}
+
+// Function definition
 void foo(){
 	// Declaring 4 Player-type objects
 	Player slayer; // constructor 1 called
@@ -1277,6 +1287,7 @@ void foo(){
 	Player villain {"Villain"}; // constructor 2 called
 } // 4 destructors called
 
+// main code
 int main() {
 	foo(); // refer to function declaration above
 
@@ -1286,6 +1297,13 @@ int main() {
 
 }
 ```
+### Destructors
+- Special member method
+- Invoked automatically when an object is destroyed (out of scope or `delete`)
+- Useful to release memory and other resources
+- Same name as the class proceeded with a tilde (~)
+- No return type and no parameters
+- Can NOT be overloaded
 ### Constructors
 - Special member method
 - Invoked during object creation
@@ -1301,7 +1319,7 @@ int main() {
 - Called when you instantiate a new object with no arguments
 #### Constructor initialization lists
 So far, all data member values have been set in the constructor body. But there is a better way to do it: **the construction initialization lists** 
-- are more efficient 
+- are more efficient (not initialization + assignation. Only initialization)
 - initialization list immediately follows the parameter list
 - initializes the data members as the object is created
 - order of initialization is the order of declaration in the class
@@ -1321,17 +1339,35 @@ public:
 	~Player();
 };
 
-Player::Player():
+// previous way to define constructors
+Player::Player() {
+	name = "None"; // This is an assignment, not an initialization
+	health = 0;
+	xp = 0;
+}
 
+... // other constructors bodies
 
+// Better way to do it
+Player::Player():name{"None"}, health{0}, xp{0}{
+	//constructor body
+}
+
+Player::Player():name{name_val}, health{0}, xp{0}{
+}
+
+Player::Player():name{name_val}, health{health_val}, xp{xp_val}{
+}
 ```
-### Destructors
-- Special member method
-- Invoked automatically when an object is destroyed (out of scope or `delete`)
-- Useful to release memory and other resources
-- Same name as the class proceeded with a tilde (~)
-- No return type and no parameters
-- Can NOT be overloaded
-> Constructors and destructors are defined same as methods (can be inside-class or outside-class)
+#### Delegating constructors
+Often the code for constructors is very similar. Duplicated code can lead to errors. To solve this, C++ allows **delegating constructors:**
+- Code for one constructor can call another in the initialization list
+- avoids duplicating code
+```C++
+// Starting from the last example c
+```
+
+
+
 
 
