@@ -1198,20 +1198,30 @@ public:
 ```
 #### Outside-class method declaration
 ``` C++
-														_
-class Account {                                          |
-private:                                                 |
-	double balance;                                      |
-														 |
-public:                                                  |
-	void set_balance(double bal);                        |
+-------------------------- .h file ----------------------------------------------
+#ifndef _ACCOUNT_H_
+#define _ACCOUNT_H_ -> This is C-style
+
+#pragma once -> This is modern C++ style
+
+class Account {
+private:
+	double balance;
+
+public:
+	void set_balance(double bal);
 	double get_balance();
 };
 
+#endif -> This is C-style (not necessarily for modern C++ style)
+---------------------------------------------------------------------------------
+
+-------------------------- .c file ----------------------------------------------
 void Account::set_balance(double bal){ // setter
 		balance = bal;
 }
 double Account::get_balance() { // getter
 		return balance;
 	}
-
+---------------------------------------------------------------------------------
+```
