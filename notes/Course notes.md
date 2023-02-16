@@ -1213,7 +1213,7 @@ public:
 	double get_balance();
 };
 
-#endif -> This is C-style (not necessarily for modern C++ style)
+#endif -> This is C-style (don't need for modern C++ style)
 ---------------------------------------------------------------------------------
 
 -------------------------- .c file ----------------------------------------------
