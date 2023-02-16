@@ -1198,7 +1198,7 @@ public:
 ```
 #### Outside-class method declaration
 ``` C++
--------------------------- .h file ----------------------------------------------
+-------------------------- Account.h file ---------------------------------------
 #ifndef _ACCOUNT_H_
 #define _ACCOUNT_H_ -> This is C-style
 
@@ -1216,12 +1216,28 @@ public:
 #endif -> This is C-style (don't need for modern C++ style)
 ---------------------------------------------------------------------------------
 
--------------------------- .c file ----------------------------------------------
+-------------------------- Account.cpp file -------------------------------------
+#include "Account.h" 
+
 void Account::set_balance(double bal){ // setter
-		balance = bal;
+	balance = bal;
 }
 double Account::get_balance() { // getter
-		return balance;
-	}
+	return balance;
+}
+---------------------------------------------------------------------------------
+
+--------------------------- main.cpp file ---------------------------------------
+#include <iostream>   // compiler knows where it is the library
+#include "Account.h"  // "" tells the compiler is a local library from project
+
+int main() {
+	Account frank_account;
+	frank_acccount.set_balance(1000.00);
+	double bal = frank_account.get_balance();
+
+	std::cout << bal << std::endl; // Output: 1000
+	return 0;
+}
 ---------------------------------------------------------------------------------
 ```
