@@ -1433,13 +1433,42 @@ int main() {
 #### Copy constructor
 - When objects are copie C++ must create a new object from an existing object
 - Copy of an object is made when:
-	- passing object by value as a parameter
+	- passing object by value as a parameter (1)
+	- returning an object from a function by value (2)
+	- constructing one object based on another of the same class (3)
 ```C++
+----- (1) -----
 Player hero {"Hero",100,20};
 void display_player(Player_p){ 
 	// inside the function there is a copy of hero named p (that is local)
 }
+----- (2) -----
+Player enemy;
+Player create_super_enemy(){
+	Player an_enemy{"Super Enemy", 1000,1000};
+	return an_enemy; // A copy of an_enemy is returned
+}
+enemy = create_super_enemy(); // the copy is named enemy
+----- (3) -----
+Player hero {"Hero",100,20};
+Player another_hero {hero}; // A copy of hero is made and named another_hero
 ```
-	- returning an object from a function by value
-	- constructing one object based on another of the same class
 - C++ must have a way of accomplishing this so it provides a compiler-defined copy constructor if you don't provide it.
+	- In other words: if you don't provide your own way of copying objects by value then the compiler provides a default way of copying objects
+- Copies the values of each data member to the new object -> default memberwise copy
+- Perfectly fine in many cases
+- Beware if you have a raw pointer data member
+	- Pointer will be copied
+	- Data it is pointing to, will not be copied (shallow copy)
+##### Best practices
+- Provide a copy constructor when your class has raw pointer members
+- Provide the copy constructor with a `const reference` parameter
+- Use STL (Standard Templete Library) classes as they already provide copy constructors
+- Avoid using raw pointers data members (if possible) or use smart pointers
+##### Declaring the copy constructor
+```C++
+Type::Type(const Type &source);
+
+// Examples:
+Player::Player(const Player &source);
+Account::Account(const Account &source);
