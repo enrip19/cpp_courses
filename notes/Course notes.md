@@ -1255,7 +1255,7 @@ public:
 	// Overloaded Constructors declaration
 	Player(); // constructor 1
 	Player(std::string name_val); // constructor 2
-	Player(std::string name_val, int health_val, int xp_val); // constructor 3
+	Player(std::string name_val="None", int health_val=0, int xp_val=0); // constructor 3
 	// Destructor declaration
 	~Player();
 };
@@ -1335,7 +1335,7 @@ public:
 	// Overloaded Constructors declaration
 	Player(); // constructor 1
 	Player(std::string name_val); // constructor 2
-	Player(std::string name_val, int health_val, int xp_val); // constructor 3
+	Player(std::string name_val="None", int health_val=0, int xp_val=0); // constructor 3
 	// Destructor declaration
 	~Player();
 };
