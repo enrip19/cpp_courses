@@ -1255,6 +1255,7 @@ int main() {
 - Same name as the class proceeded with a tilde (~)
 - No return type and no parameters
 - Can NOT be overloaded
+> Constructors and destructors are defined same as methods (can be inside-class or outside-class)
 ``` C++
 class Player
 {
@@ -1290,6 +1291,8 @@ int main() {
 ```
 
 ### Default constructor (no-args constructor)
-> If no constructor or/and destructor are declared, C++ provide a default constructor or/and destructor that are empty
+> If no constructor or/and destructor are declared, C++ provide a default constructor or/and destructor that are empty. 
+> 
+> ATTENTION: If you declare a constructor with arguments, it will not generate a no-args constructor. A compiler error will rise!
 - Does not expect any arguments
 - Called when you instantiate a new object with no arguments
