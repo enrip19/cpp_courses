@@ -1465,10 +1465,46 @@ Player another_hero {hero}; // A copy of hero is made and named another_hero
 - Provide the copy constructor with a `const reference` parameter
 - Use STL (Standard Templete Library) classes as they already provide copy constructors
 - Avoid using raw pointers data members (if possible) or use smart pointers
-##### Declaring the copy constructor
+##### Declaring and implementing the copy constructor
 ```C++
-Type::Type(const Type &source);
+// Declaration (to the public part of the class)
+Type(const Type &source);
+// Implementation
+Type::Type(const Type &source):initalization_list 
+{
+	// Code or initialization list to copy the object
+}
 
-// Examples:
-Player::Player(const Player &source);
-Account::Account(const Account &source);
+// Example:
+class Player
+{
+private: 
+	std::string name;
+	int health;
+	int xp;
+public:
+	// Methods
+	// getters
+	std::string get_name() { retrun name; }
+	int get_health() { return health; }
+	int get_xp() { return xp; }
+
+	// Constructors 
+	Player(std::string name_val="None", int health_val=0, int xp_val=0); 
+	// copy constructor
+	Player(const Player &source);
+	
+	// Destructor 
+	~Player() { cout << "Destruction of: " << name << endl; }
+};
+// Constructor
+Player::Player(std::string name_val, int health_val, int xp_val) 
+	:name{name_val}, health{health_val}, xp{xp_val} 
+{ 
+	cout << "Construction of the player " << name << endl;
+}
+// Copy constructor
+Player::Player(const Player &source)
+	: name{source.name}, health{source.health}, xp{source.xp } 
+{
+}
