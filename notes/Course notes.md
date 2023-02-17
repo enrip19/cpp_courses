@@ -1646,3 +1646,16 @@ public:
 	Move(Move &&source); // move constructor
 	~Move(); // destructor
 };
+
+// move constructor implementation
+Move::Move(Move &&source)
+	: data{source.data} { // copies source.data to data (not like deep copy constructor)
+		source.data = nullptr; // then nulls out source.data pointer
+}
+
+int main(){
+	std::Vector<Move> vec;
+
+	vec.push_back(Move{10}); // here is not calling to copy constructor. Instead is calling move constructor. This is because we are calling it with an r-value instead of a l-value (which would call the copy constructor)
+}
+```
