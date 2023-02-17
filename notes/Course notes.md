@@ -1604,6 +1604,11 @@ total = 100 + 200; // here is a 300 stored in a unnamed temp value. Then it is v
 		- With move constructors you have more efficient code
 	- Copy elision -> C++ may optimize copying away completely (RVO-Return Value Optimization)
 	- It is reccomended to use move constructor when you have raw pointers
+> - Thus, the move constructor does:
+>	- moves the resource (not copies)
+>	- Simply copies the address of the resource from source to the current object
+>	- And nulls out the pointer in the source pointer
+> - This is very efficient 
 ##### R-value references
 - Used in moving semantics and perfect forwarding
 - Used by move constructor and move assignment operator to efficiently move an object rather than copy it
@@ -1624,6 +1629,20 @@ func(x); // x is an l-value. works correctly
 func(200); // 200 is an r-value. Compiler ERROR
 
 void func(int &&num); 
-
-func(x); //)
+func(x); // x is an l-value. Compiler ERROR
+func(200); // 200 is an r-value. works correctly
 ```
+> We can use function overload to avoid the compiler errors.
+##### Example of the move constructor
+```C++
+class Move{
+private:
+	int *data; // raw pointer
+public:
+	void set_data_vaue (int d) { *data = d; }
+	int get_data_value() { return *data; }
+	Move(int d); // constructor
+	Move(const Move &source); // copy constructor
+	Move(Move &&source); // move constructor
+	~Move(); // destructor
+};
