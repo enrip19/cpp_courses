@@ -1,3 +1,5 @@
 - [C++ Keywords - cppreference.com](https://en.cppreference.com/w/cpp/keyword)
 - [Code Reference - cppreference.com](https://en.cppreference.com/)
+- [Understanding the meaning of lvalues and rvalues in C++](https://www.internalpointers.com/post/understanding-meaning-lvalues-and-rvalues-c)
+- [C++ rvalue references and move semantics for beginners](https://www.internalpointers.com/post/c-rvalue-references-and-move-semantics-beginners)
 - 

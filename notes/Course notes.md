@@ -1,3 +1,7 @@
+> This notes are from the point of view of an electronic engineer which has studied for C programming. It means I haven't touched in deep with Object-Oriented Programming or something like that. 
+> I will skip notes for basic programming or things which are already in C programming.
+> You can
+
 # Basic I/O using `cin` and `cout` - Standard library
 ## `cout` 
 - Standard output stream
@@ -968,6 +972,7 @@ for (auto str: stooges)
 Refer to [Functions section -> Pass-by-reference subsection](#Functions#Pass-by-reference)
 
 # L-values and R-values
+> More info: **[Understanding the meaning of lvalues and rvalues in C++](https://www.internalpointers.com/post/understanding-meaning-lvalues-and-rvalues-c)**
 ## L-values
 - Values that have names and are addressable
 - Modifiable if they are not constatns
@@ -1593,6 +1598,7 @@ Deep::Deep(const Deep &source)
 > As you can see, when the destructor of the copy is called (when object is out of scope or it is deleted), the destructor will release the copied data and not the original. This will make that the original object will still be pointing to a valid data (in fact, it's valid data).
 
 #### Move constructor
+> More info: [C++ rvalue references and move semantics for beginners](https://www.internalpointers.com/post/c-rvalue-references-and-move-semantics-beginners)
 - Sometimes when w execute code the compiler creates unnamed temporary values:
 	- Same happens with objects
 ```C++
