@@ -1598,7 +1598,7 @@ Deep::Deep(const Deep &source)
 ```
 > As you can see, when the destructor of the copy is called (when object is out of scope or it is deleted), the destructor will release the copied data and not the original. This will make that the original object will still be pointing to a valid data (in fact, it's valid data).
 
-#### Move constructor
+#### Move constructor - Move semantics
 > More info: [C++ rvalue references and move semantics for beginners](https://www.internalpointers.com/post/c-rvalue-references-and-move-semantics-beginners)
 - Sometimes when w execute code the compiler creates unnamed temporary values:
 	- Same happens with objects
