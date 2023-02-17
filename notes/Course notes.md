@@ -1527,7 +1527,7 @@ Player::Player(const Player &source)
 - memberwise copy
 - each data member is copied from the source object
 - the pointer is copied. **Not what it points to.** -> That is what mean shallow copy
-- *Problem:* when we release the storage in the destructor, the other object still refers to the released storage => **MEMORY LEAK**
+- *Problem:* when we delete the copy (or the copy is out of scope), the data which is pointing the copy is released. But the other object still refers to the released storage. This ends to a situation where the original object is pointing to an invalid data which will not be able to free or modify safely => **MEMORY LEAK** (and program crashes)
 ```C++
 class Shallow {
 private:
@@ -1552,4 +1552,39 @@ Shallow::Shallow(const Shallow &source)
 	: data(source.data) {
 		cout << "Copy constructor - shallow" << endl;		
 }
+```
+###### Deep copy
+To solve these problems we have the deep copy which **creates a copy of the pointed data**
+- Each copy will have a pointer to unique storage in the heap
+- You  should use deep copy when you have a raw pointer as a class data member
+```C++
+class Deep { // is the same class as Shallow (but changing the name)
+private:
+	int *data; // Pointer
+public:
+	Deep(int d); // Constructor
+	Deep(const Deep &source); // Copy constructor
+	~Deep(); // Destructor
+};
+//Constructor
+Deep::Deep(int d){
+	data = new int; // allocate storage
+	*data = d;
+}
+// Destructor
+Deep::~Deep(){
+	delete data; // free storage
+	cout << "Destructor freeing data" << endl;
+}
+// Copy consturctor (DEEP) -> here is where things chage
+Deep::Deep(const Deep &source)
+	: data(source.data) {
+		data = new int; // allocate storage
+		*data = *source.data; // copy data to the new storage (here is the point)
+		cout << "Copy constructor - shallow" << endl;		
+}
+// Or we can use a delegation to do the same
+// Copy constructor (DEEP) with delegation 
+Deep::Deep(const Deep &source)
+	:
 ```
