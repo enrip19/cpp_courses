@@ -1517,4 +1517,15 @@ Player::Player(const Player &source)
 	cout << "Copying the: " << source.name << endl;
 }
 ```
-#### Shallow vs Deep copying
+##### Shallow vs Deep copying
+> - Consider a class that contains a pointer as a data member
+> - Constructor allocates storage dynamically and initializes the pointer 
+> - Destructor releases the memory allocated by the constructor
+> - What happens in the default copy constructor? -> SHALLOW Copy
+
+###### Shallow copy (default copy constructor)
+- memberwise copy
+- each data member is copied from the source object
+- the pointer is copied. **Not what it points to.** -> That is what mean shallow copy
+- *Problem:* when we release the storage in the destructor, the other object still refers to the released storage => **MEMORY LEAK**
+
