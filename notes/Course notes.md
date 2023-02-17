@@ -1528,4 +1528,28 @@ Player::Player(const Player &source)
 - each data member is copied from the source object
 - the pointer is copied. **Not what it points to.** -> That is what mean shallow copy
 - *Problem:* when we release the storage in the destructor, the other object still refers to the released storage => **MEMORY LEAK**
-
+```C++
+class Shallow {
+private:
+	int *data; // Pointer
+public:
+	Shallow(int d); // Constructor
+	Shallow(const Shallow &source); // Copy constructor
+	~Shallow(); // Destructor
+};
+//Constructor
+Shallow::Shallow(int d){
+	data = new int; // allocate storage
+	*data = d;
+}
+// Destructor
+Shallow::~Shallow(){
+	delete data; // free storage
+	cout << "Destructor freeing data" << endl;
+}
+// Copy consturctor (SHALLOW)
+Shallow::Shallow(const Shallow &source)
+	: data(source.data) {
+		cout << "Copy constructor - shallow" << endl;		
+}
+```
