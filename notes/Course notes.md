@@ -1591,3 +1591,11 @@ Deep::Deep(const Deep &source)
 }
 ```
 > As you can see, when the destructor of the copy is called (when object is out of scope or it is deleted), the destructor will release the copied data and not the original. This will make that the original object will still be pointing to a valid data (in fact, it's valid data).
+
+#### Move constructor
+- Sometimes when w execute code the compiler creates unnamed temporary values:
+```C++
+ìnt total {0};
+total = 100 + 200; // here is a 300 stored in a unnamed temp value. Then it is value is stored to the total variable. Finnally the temp value is deleted.
+```
+	- Same happens with objects
