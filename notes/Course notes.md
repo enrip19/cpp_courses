@@ -1594,8 +1594,36 @@ Deep::Deep(const Deep &source)
 
 #### Move constructor
 - Sometimes when w execute code the compiler creates unnamed temporary values:
+	- Same happens with objects
 ```C++
 ìnt total {0};
 total = 100 + 200; // here is a 300 stored in a unnamed temp value. Then it is value is stored to the total variable. Finnally the temp value is deleted.
 ```
-	- Same happens with objects
+- The move constructor, move the object rather than copying it.
+	- Copy constructors doing deep copying can have a significant perfomance bottleneck
+		- With move constructors you have more efficient code
+	- Copy elision -> C++ may optimize copying away completely (RVO-Return Value Optimization)
+	- It is reccomended to use move constructor when you have raw pointers
+##### R-value references
+- Used in moving semantics and perfect forwarding
+- Used by move constructor and move assignment operator to efficiently move an object rather than copy it
+- `&&` -> R-value reference operator
+```C++
+int x{100}
+int &l_ref = x; // l-value reference
+l_ref = 10; // change x to 10
+
+int &&r_ref = 200; // r-value ref
+r_ref = 300 // change r_ref to 300
+
+int &&x_ref = x; // Compiler ERROR
+
+// with function happens the same
+void func(int &num); 
+func(x); // x is an l-value. works correctly
+func(200); // 200 is an r-value. Compiler ERROR
+
+void func(int &&num); 
+
+func(x); //)
+```
