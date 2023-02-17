@@ -1581,10 +1581,13 @@ Deep::Deep(const Deep &source)
 	: data(source.data) {
 		data = new int; // allocate storage
 		*data = *source.data; // copy data to the new storage (here is the point)
-		cout << "Copy constructor - shallow" << endl;		
+		cout << "Copy constructor - deep" << endl;		
 }
 // Or we can use a delegation to do the same
 // Copy constructor (DEEP) with delegation 
 Deep::Deep(const Deep &source)
-	:
+	: Deep{*source.data} { // Delegate to Deep(int) and pass as int the *source.data to copy the data which is pointing to
+		cout << "Copy constructor - deep" << endl;
+}
 ```
+> As you can see, when the destructor of the copy is called (when object is out of scope or it is deleted), the destructor will release the copied data and not the original. This will make that the original object will still be pointing to a valid data (in fact, it's valid data).
