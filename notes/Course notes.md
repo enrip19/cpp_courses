@@ -1,6 +1,7 @@
 > This notes are from the point of view of an electronic engineer which has studied for C programming. It means I haven't touched in deep with Object-Oriented Programming or something like that. 
 > I will skip notes for basic programming or things which are already in C programming.
-> You can
+> 
+> You can check links of interest in [Links of interest](./Links%20of%20interest.md) document.
 
 # Basic I/O using `cin` and `cout` - Standard library
 ## `cout` 
@@ -974,7 +975,7 @@ Refer to [Functions section -> Pass-by-reference subsection](#Functions#Pass-by-
 # L-values and R-values
 > More info: **[Understanding the meaning of lvalues and rvalues in C++](https://www.internalpointers.com/post/understanding-meaning-lvalues-and-rvalues-c)**
 ## L-values
-- Values that have names and are addressable
+- Values that have names and are addressable (points to a specific memory location)
 - Modifiable if they are not constatns
 ```C++
 int x {100}; // x is an l-value
@@ -992,7 +993,7 @@ name = "Frank";
 #### L-value references
 - They are the references we have used because we are referencing L-values
 ## R-values
-- Non-addressable and non-assignable values (values that aren't an L-value) 
+- Non-addressable (doesn't point anywhere) and non-assignable values (values that aren't an L-value) 
 	- On the right-hand side of an assignment expression
 	- A litteral
 	- A temporary which is intended to be non-modifiable
