@@ -1668,4 +1668,10 @@ int main(){
 ```
 
 ### `this` pointer
- 
+- Is a reserved keyword that **contains the address of an object** -> it is a pointer to the object
+- Can only be used in class scope
+- All member access is done via the `this` pointer
+- Can be used by the programmer
+	- To access data member and methods
+	- To determine if two objects are the same 
+	- Can be dreferenced (`*this`) to yield
