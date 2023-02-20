@@ -1674,4 +1674,27 @@ int main(){
 - Can be used by the programmer
 	- To access data member and methods
 	- To determine if two objects are the same 
-	- Can be dreferenced (`*this`) to yield
+	- Can be dreferenced (`*this`) to yield the current object
+- In other OOP languages it is called `self` (in Python for example)
+
+```C++
+void Account::set_balance(double bal) {
+	balance = bal; // this->balance is implied
+}
+/* But, if we use the same name for an attribute and a parameter in a method of the class we have amiguity: */
+void Account::set_balance(double balance){
+	balance = balance; // ERROR -> AMBIGUITY
+	this->balance = balance; // Unambiguous!!!
+}
+
+/* Another use is to determine object identity: */
+int Account::compare_balance(const Account &other){
+	// here we are comparing the object with the one we are introduccing by reference (through the parameter)
+	if(this == &other) 
+		std::cout << "The same objects" << std::endl;
+	...
+}
+
+frank_account.compare_balance(frank_account); // function call
+```
+> Compare objects between is usefull to be more efficient when the logic of the objects is complex, which would mean that we would need to do a lot of processes to check their equality.
