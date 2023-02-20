@@ -1666,3 +1666,6 @@ int main(){
 	vec.push_back(Move{10}); // here is not calling to copy constructor. Instead is calling move constructor. This is because we are calling it with an r-value instead of a l-value (which would call the copy constructor)
 }
 ```
+
+### `this` pointer
+
