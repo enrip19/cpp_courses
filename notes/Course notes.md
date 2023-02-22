@@ -1717,11 +1717,7 @@ Class Player {
 }
 ```
 > Now the compiler will not only allow this method to be called on `const` objects, it will also produce a compiler error if you try to modify any of the object attributes in the method!
+> This is named *`const-correctness`*
 
-#### `const` correctness
-``` C++
-const Player villain {"Villain", 100, 55};
+> The rule thumb is: **All your gettters should be `const`**. Basically, any method that you have in your class that doesn't modify the object should be `const`.
 
-villain.set_name("Nice guy"); // ERROR
-
-std::cout << villain.get_name() << std::endl; // OK
