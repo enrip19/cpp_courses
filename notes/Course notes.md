@@ -1698,3 +1698,30 @@ int Account::compare_balance(const Account &other){
 frank_account.compare_balance(frank_account); // function call
 ```
 > Compare objects between is usefull to be more efficient when the logic of the objects is complex, which would mean that we would need to do a lot of processes to check their equality.
+
+### Using `const` with classes
+- Pass arguments to class member methods as `const`
+- We can also create `const` objects
+```c++
+const Player villain {"Villain", 100, 55}; // Player is a class
+```
+- If we declare a const object from a class and try to use it like always, we will get compiler errors because the compiler "thinks" that any method can change the object, which is prohibited because of the `const` keyword.
+	- To solve this we must tell to the compiler that the method we are trying to use is not going to modify the object.
+```C++
+Class Player {
+	private:
+	...
+	public:
+		std::string get_name() const; // with the const keyword here, we are telling to the compiler that this method is not changing anything from the object
+		...
+}
+```
+> Now the compiler will not only allow this method to be called on `const` objects, it will also produce a compiler error if you try to modify any of the object attributes in the method!
+
+#### `const` correctness
+``` C++
+const Player villain {"Villain", 100, 55};
+
+villain.set_name("Nice guy"); // ERROR
+
+std::cout << villain.get_name() << std::endl; // OK
