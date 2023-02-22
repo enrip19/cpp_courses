@@ -1728,6 +1728,7 @@ public:
 	- Independent of any objects
 	- can be called using the class name
 ```C++
+// This a quick and resumed example. If you want the full example code, you can go to the examples folder in section13 -> StaticClassMembers example
 -------------------------- Player.h ---------------------------------------------
 class Player {
 private:
@@ -1737,7 +1738,6 @@ public:
 	static int get_num_players();
 	...
 }
-
 
 -------------------------- Player.cpp -------------------------------------------
 #include "Player.h"
@@ -1756,5 +1756,20 @@ Player::Player(std::string name_val, int health_val, int xp_val)
 		++num_players;	// we are incrementing it here because every time an object is initialized, the constructor is executed
 }
 // Destructor
-Player::~Player
+Player::~Player(){
+	--num_players; // the same as the constructor but when we want to destroy the objects.
+}
+
+-------------------------- main.cpp ---------------------------------------------
+void display_active_players(){
+	cout << "Active players: " << Player::get_num_players() << endl;
+}
+
+int main() {
+	display_active_players(); // Output: Active_players: 0
+	
+	Player obj1 {"Frank"};
+	display_active_players(); // Output: Active_players: 1
+}
+
 ```
