@@ -1699,7 +1699,7 @@ frank_account.compare_balance(frank_account); // function call
 ```
 > Compare objects between is usefull to be more efficient when the logic of the objects is complex, which would mean that we would need to do a lot of processes to check their equality.
 
-### Using `const` with classes
+### `const` correctness - Using `const` with classes 
 - Pass arguments to class member methods as `const`
 - We can also create `const` objects
 ```c++
@@ -1717,7 +1717,13 @@ Class Player {
 }
 ```
 > Now the compiler will not only allow this method to be called on `const` objects, it will also produce a compiler error if you try to modify any of the object attributes in the method!
-> This is named *`const-correctness`*
 
 > The rule thumb is: **All your gettters should be `const`**. Basically, any method that you have in your class that doesn't modify the object should be `const`.
 
+### `static` Class members
+- **Class data member** can be declared as `static`
+	- A single data member that belongs to the class, not the objects
+	- useful to store class-wide information
+- **Class functions** can be declared as `static`
+	- Independent of any objects
+	- can be called using the class name
