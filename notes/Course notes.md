@@ -1708,13 +1708,13 @@ const Player villain {"Villain", 100, 55}; // Player is a class
 - If we declare a const object from a class and try to use it like always, we will get compiler errors because the compiler "thinks" that any method can change the object, which is prohibited because of the `const` keyword.
 	- To solve this we must tell to the compiler that the method we are trying to use is not going to modify the object.
 ```C++
-Class Player {
-	private:
+class Player {
+private:
 	...
-	public:
-		std::string get_name() const; // with the const keyword here, we are telling to the compiler that this method is not changing anything from the object
-		...
-}
+public:
+	std::string get_name() const; // with the const keyword here, we are telling to the compiler that this method is not changing anything from the object
+	...
+};
 ```
 > Now the compiler will not only allow this method to be called on `const` objects, it will also produce a compiler error if you try to modify any of the object attributes in the method!
 
@@ -1727,3 +1727,34 @@ Class Player {
 - **Class functions** can be declared as `static`
 	- Independent of any objects
 	- can be called using the class name
+```C++
+-------------------------- Player.h ---------------------------------------------
+class Player {
+private:
+	static int num_players; // Can't be initialized here (we are in a .h file). You must do it in .cpp 
+	...
+public:
+	static int get_num_players();
+	...
+}
+
+
+-------------------------- Player.cpp -------------------------------------------
+#include "Player.h"
+// Static 
+int Player::num_players = 0; // Init of the static variable
+
+int Player::get_num_players() {
+	// This function has no access to non-static class members. It can only work with static class members
+	return num_players;
+}
+
+// Non-static
+// Constructor
+Player::Player(std::string name_val, int health_val, int xp_val)
+	: name{name_val}, health{health_val}, xp{xp_val} {
+		++num_players;	// we are incrementing it here because every time an object is initialized, the constructor is executed
+}
+// Destructor
+Player::~Player
+```
