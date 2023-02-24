@@ -35,10 +35,7 @@ Movies::~Movies() {
   *********************************************************************/
 bool Movies::add_movie(std::string name, std::string rating, int watched) {
   for (auto m : movies) {
-    if (m.get_name() == name)
-      return false;
-    else
-      continue;
+    if (m.get_name() == name) return false;
   }
   movies.push_back(Movie{name, rating, watched});
   return true;
@@ -56,8 +53,16 @@ bool Movies::add_movie(std::string name, std::string rating, int watched) {
    provided exists to increment
    *********************************************************************/
 bool Movies::increment_watched(std::string name) {
-  // you implement this method
-  return false;
+  if (movies.size() == 0)
+    return false;
+  else {
+    for (auto m : movies) {
+      if (m.get_name() == name) {
+        m.set_watched(m.get_watched() + 1);
+        return true;
+      }
+    }
+  }
 }
 
 /*************************************************************************
@@ -69,10 +74,12 @@ bool Movies::increment_watched(std::string name) {
     *********************************************************************/
 void Movies::display() const {
   if (movies.size() == 0)
-    std::cout << "No movies to display" << std::endl;
+    std::cout << "No movies to display\n" << std::endl;
   else {
+    std::cout << "\n### --- List of movies: --- ###" << std::endl;
     for (auto m : movies) {
       m.display();
     }
+    std::cout << std::endl;
   }
 }

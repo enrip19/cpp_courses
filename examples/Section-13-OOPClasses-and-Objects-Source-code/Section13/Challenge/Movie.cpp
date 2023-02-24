@@ -17,18 +17,15 @@
 
 Movie::Movie(std::string name, std::string rating, int watched)
     : name(name), rating(rating), watched(watched) {
-  // std::cout << name << "movie object has been created" << std::endl;
 }
 
 // Implemention of the copy constructor
 Movie::Movie(const Movie &source)
     : Movie{source.name, source.rating, source.watched} {
-  // std::cout << name << "movie object has been copied" << std::endl;
 }
 
 // Implementation of the destructor
 Movie::~Movie() {
-  // std::cout << name << "movie object has been destroyed" << std::endl;
 }
 
 // Implementation of the display method
