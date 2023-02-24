@@ -1667,7 +1667,7 @@ int main(){
 }
 ```
 
-### `this` pointer
+## `this` pointer
 - Is a reserved keyword that **contains the address of an object** -> it is a pointer to the object
 - Can only be used in class scope
 - All member access is done via the `this` pointer
@@ -1699,7 +1699,7 @@ frank_account.compare_balance(frank_account); // function call
 ```
 > Compare objects between is usefull to be more efficient when the logic of the objects is complex, which would mean that we would need to do a lot of processes to check their equality.
 
-### `const` correctness - Using `const` with classes 
+## `const` correctness - Using `const` with classes 
 - Pass arguments to class member methods as `const`
 - We can also create `const` objects
 ```c++
@@ -1720,7 +1720,7 @@ public:
 
 > The rule thumb is: **All your gettters should be `const`**. Basically, any method that you have in your class that doesn't modify the object should be `const`.
 
-### `static` Class members
+## `static` Class members
 - **Class data member** can be declared as `static`
 	- A single data member that belongs to the class, not the objects
 	- useful to store class-wide information
@@ -1773,3 +1773,14 @@ int main() {
 }
 
 ```
+## Friends of a class
+- Friend
+	- A function or class that has access to private class member but it's NOT a member of the class it is accesssing
+		- Hence, it is violating encapsulation but is a C++ feature
+	- Friend functions
+		- Can be regular non-member functions
+		- Can be member methods of another class
+	- Friend Classes
+		- Another class can have access to private class members
+- Friendship must be granted NOT taken
+	- Declared explicitly  in the class that is granting 
