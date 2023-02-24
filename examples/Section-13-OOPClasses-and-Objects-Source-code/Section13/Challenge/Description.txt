@@ -9,7 +9,7 @@ The program must support the following:
 
 class Movie - models a movie which includes
 - movie name
-- movie rating (G, PG, PG-13, R)
+- movie rating (G, PG, PG-13, R) (general, parentalguidance, parental guidance under 13, restricted)
 - watched - the number of times the movie has been watched
 
 class Movies - models a collection of movie objects

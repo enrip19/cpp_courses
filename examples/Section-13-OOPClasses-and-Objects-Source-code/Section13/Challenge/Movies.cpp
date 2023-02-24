@@ -33,10 +33,10 @@ Movies::~Movies() {
   Otherwise, create a movie object from the provided information
   and add that movie object to the movies vector and return true
   *********************************************************************/
-// bool Movies::add_movie(std::string name, std::string rating, int watched) {
-//   // you implement this method
-//   return false;
-// }
+bool Movies::add_movie(std::string name, std::string rating, int watched) {
+  movies.push_back(Movie{"Star Wars", })
+  return false;
+}
 
 /*************************************************************************
    increment_watched expects the name of the move to increment the
@@ -49,10 +49,10 @@ Movies::~Movies() {
    Otherwise, return false since then no movies object with the movie name
    provided exists to increment
    *********************************************************************/
-// bool Movies::increment_watched(std::string name) {
-//   // you implement this method
-//   return false;
-// }
+bool Movies::increment_watched(std::string name) {
+  // you implement this method
+  return false;
+}
 
 /*************************************************************************
     display
@@ -62,8 +62,11 @@ Movies::~Movies() {
     object displays itself
     *********************************************************************/
 void Movies::display() const {
-  for (auto m : movies) {
-    if(movies.)
-    m.display();
+  if (movies.size() == 0)
+    std::cout << "No movies to display" << std::endl;
+  else {
+    for (auto m : movies) {
+      m.display();
+    }
   }
 }
