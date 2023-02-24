@@ -1919,7 +1919,7 @@ s1 = "Frank"; // Move operator= called
 - \--
 - -
 - !
-#### As member methods
+#### As class-member methods
 ```c++
 ReturnType Type::operatorOp();
 
