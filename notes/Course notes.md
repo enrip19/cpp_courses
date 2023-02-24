@@ -1791,4 +1791,38 @@ int main() {
 - Friendship is not transitive
 	- Must be explicitly granted
 		- if A is friend of B and B is friend of C -> then A is NOT a friend of C
+### non-member function
+```c++
+class Player{
+	friend void display_player(Player &p); // now display_player has access to memeber of Player clas
+	...
+};
 
+void display_player(Player &p){ // may also change private data members
+	std::cout << p.name << std::endl;
+	p.xp = 80; // we can change the class members because the object is passed by reference (&p) and it is non-const
+}
+```
+### member function of another class
+```C++
+class Player{
+	friend void Other_class::display_player(Player &p);
+	...
+};
+
+class Other_class{
+	...
+public:
+	void display_player(Player &p){
+		std::cout << p.name << std::endl;
+		p.xp = 80;
+	}
+}
+```
+### another class as a friend
+```c++
+class Player{
+	friend class Other_class;
+	...
+};
+```
