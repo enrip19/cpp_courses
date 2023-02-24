@@ -58,8 +58,10 @@ bool Movies::increment_watched(std::string name) {
   else {
     for (auto m : movies) {
       if (m.get_name() == name) {
-        m.set_watched(m.get_watched() + 1);
+        m.increment_watched();
         return true;
+      } else {
+        continue;
       }
     }
   }
