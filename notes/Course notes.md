@@ -1864,7 +1864,7 @@ public:
 	const char *get_str() const;
 };
 ```
-### Copy assignment operator ( `=` )
+### Copy assignment operator ( `=` ) -> l-value references
 - C++ provides a default assignment operator used for assigning one object to another
 	- Default is memberwise assignment -> Shallow copy
 		- If we have raw pointer data member we must deep copy -> we can overload the operator to solve this
@@ -1888,3 +1888,7 @@ Mystring &Mystring::operator=(const Mystring &rhs){
 // Usage
 s2 = s1 // we write this but it is called the method: s2.operator=(s1);
 ```
+### Move assignment operator ( `=` ) -> r-value references
+- You can choose to overload the move assignment operator
+	- C++ will use the copy assignment operator if necessary
+	- If we have raw pointer we should overload the move assignment operator for efficency
