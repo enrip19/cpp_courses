@@ -56,14 +56,13 @@ bool Movies::increment_watched(std::string name) {
   if (movies.size() == 0)
     return false;
   else {
-    for (auto m : movies) {
+    for (auto &m : movies) {
       if (m.get_name() == name) {
         m.increment_watched();
         return true;
-      } else {
-        continue;
       }
     }
+    return false;
   }
 }
 
