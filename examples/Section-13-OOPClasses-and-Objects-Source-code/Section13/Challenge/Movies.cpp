@@ -12,12 +12,14 @@
     Movies no-args constructor
 **************************************************************************/
 Movies::Movies() {
+    std::cout << "A new movies vector has been created!" << std::endl;
 }
 
 /*************************************************************************
     Movies destructor
 **************************************************************************/
 Movies::~Movies() {
+    std::cout << "A new movies vector has been removed!" << std::endl;
 }
 
   /*************************************************************************
@@ -59,5 +61,5 @@ bool Movies::increment_watched(std::string name) {
     object displays itself
     *********************************************************************/
 void Movies::display() const {
-   // You implement this method
+    Movie.
 }
