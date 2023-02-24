@@ -1848,9 +1848,19 @@ class Player{
 ```c++
 class Mystring{
 private:
-	char *str; // C-style string
+	char *str; // C-style pointer string
 public:
-	Mystring();
+	// Constructors
+	Mystring(); 
 	Mystring(const char *s);
-	Mystring(const Mystring &sour)
-}
+	// Copy constructor
+	Mystring(const Mystring &source);
+	// Destructor
+	~Mystring();
+	// Methods
+	void display() const;
+	int get_length() const;
+	const char *get_str() const;
+};
+
+```
