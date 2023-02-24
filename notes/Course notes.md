@@ -1914,3 +1914,24 @@ Mystring &Mystring::operator=(Mystring &&rhs){
 s1 = Mystring {"Frank"}; // Move operator= called
 s1 = "Frank"; // Move operator= called
 ```
+### Unary operators
+- ++
+- \--
+- -
+- !
+#### As member methods
+```c++
+ReturnType Type::operatorOp();
+
+// Example
+Number Number::operator-() const;
+Number Number::operator++(); // pre-increment
+Number Number::operator++(int); // post-increment
+bool Number::operator!() const; 
+
+// Usage
+Number n1 {100};
+Number n2 = -n1; //  n1.operator-()
+n2 = ++n1; // n1.operator++()
+n2 = n1++; // n1.operator++(int)
+```
