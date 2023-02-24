@@ -34,7 +34,7 @@ Movies::~Movies() {
   and add that movie object to the movies vector and return true
   *********************************************************************/
 bool Movies::add_movie(std::string name, std::string rating, int watched) {
-  for (auto m : movies) {
+  for (const auto &m : movies) {
     if (m.get_name() == name) return false;
   }
   movies.push_back(Movie{name, rating, watched});
