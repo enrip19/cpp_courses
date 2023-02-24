@@ -1845,6 +1845,7 @@ class Player{
 	- `[]`, `()`, `->`, and `=` must be declared as member methods
 	- Other operators can be declared as member methods or global functions
 ## How to do it?
+We are going to pass through multiple operators. We always use the next class definition as starting point:
 ```c++
 class Mystring{
 private:
@@ -1862,5 +1863,28 @@ public:
 	int get_length() const;
 	const char *get_str() const;
 };
+```
+### Copy assignment operator ( `=` )
+- C++ provides a default assignment operator used for assigning one object to another
+	- Default is memberwise assignment -> Shallow copy
+		- If we have raw pointer data member we must deep copy -> we can overload the operator to solve this
+```C++
+Type &Type::operator=(const Type &rhs);
 
+// Example
+Mystring &Mystring::operator=(const Mystring &rhs);
+
+Mystring &Mystring::operator=(const Mystring &rhs){
+	if (this == &rhs)
+		return *this;
+	
+	delete [] str;
+	str = new char[std::strlen(rhs.str) + 1];
+	std::strcpy(str, rhs.str);
+
+	return *this;
+}
+
+// Usage
+s2 = s1 // we write this but it is called the method: s2.operator=(s1);
 ```
