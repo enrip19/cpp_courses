@@ -13,14 +13,14 @@
    Movies no-args constructor
 **************************************************************************/
 Movies::Movies() {
-  std::cout << "A new movies vector has been created!" << std::endl;
+  // std::cout << "A new movies vector has been created!" << std::endl;
 }
 
 /*************************************************************************
     Movies destructor
 **************************************************************************/
 Movies::~Movies() {
-  std::cout << "A new movies vector has been removed!" << std::endl;
+  // std::cout << "A new movies vector has been removed!" << std::endl;
 }
 
 /*************************************************************************
@@ -34,8 +34,14 @@ Movies::~Movies() {
   and add that movie object to the movies vector and return true
   *********************************************************************/
 bool Movies::add_movie(std::string name, std::string rating, int watched) {
-  movies.push_back(Movie{"Star Wars", })
-  return false;
+  for (auto m : movies) {
+    if (m.get_name() == name)
+      return false;
+    else
+      continue;
+  }
+  movies.push_back(Movie{name, rating, watched});
+  return true;
 }
 
 /*************************************************************************
