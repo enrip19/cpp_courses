@@ -1826,3 +1826,31 @@ class Player{
 	...
 };
 ```
+# Operator Overloading
+## What is it?
+- Using traditional operators such as +, =, \*, etc with user-defined types
+	- Allows the user-defined types to behave similar to built-in types
+	- Can make code more readable and writable
+	- Not done automatically (except for the assignment operator) -> Thyey must be explicitly defined
+- We **cannot** overload the next operators:
+	- `::`
+	- `:?`
+	- `.*`
+	- `.`
+	- `sizeof`
+- Basic rules for operator overloading
+	- Precedence and associativity cannot be changed
+	- can't overload operators for primitive type (e.g. int, double, ...)
+	- can't create new operators
+	- `[]`, `()`, `->`, and `=` must be declared as member methods
+	- Other operators can be declared as member methods or global functions
+## How to do it?
+```c++
+class Mystring{
+private:
+	char *str; // C-style string
+public:
+	Mystring();
+	Mystring(const char *s);
+	Mystring(const Mystring &sour)
+}
