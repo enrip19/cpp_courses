@@ -1876,7 +1876,7 @@ Mystring &Mystring::operator=(const Mystring &rhs);
 
 Mystring &Mystring::operator=(const Mystring &rhs){
 	if (this == &rhs) // check for self-assignment
-		return *this;
+		return *this; // return current object
 	
 	delete [] str; // deallocate storage for this->str since we are overwriting it. Else -> memory leak
 	str = new char[std::strlen(rhs.str) + 1]; // Allocate storage for the deep copy
@@ -1892,3 +1892,25 @@ s2 = s1 // we write this but it is called the method: s2.operator=(s1);
 - You can choose to overload the move assignment operator
 	- C++ will use the copy assignment operator if necessary
 	- If we have raw pointer we should overload the move assignment operator for efficency
+```c++
+Type &Type::operator=(Type &&rhs);
+
+// Example
+Mystring &Mystring::operator=(Mystring &&rhs);
+
+Mystring &Mystring::operator=(Mystring &&rhs){
+	if(this == &rhs) // check for self-assignment
+		return *this; // return current object
+		
+	delete [] str; // deallocate storage for this->str since we are overwriting it. Else -> memory leak
+	str = rhs.str; // Steal the pointer.
+	
+	rhs.str = nullptr; // null out the rhs object
+	
+	return *this; // Return the current by reference to allow chain assignment (s1 = s2 = s3 )
+}
+
+// Usage
+s1 = Mystring {"Frank"}; // Move operator= called
+s1 = "Frank"; // Move operator= called
+```
