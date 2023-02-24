@@ -1783,4 +1783,12 @@ int main() {
 	- Friend Classes
 		- Another class can have access to private class members
 - Friendship must be granted NOT taken
-	- Declared explicitly  in the class that is granting 
+	- Declared explicitly  in the class that is granting friendship
+	- Declared in the function protoype with the keyword `friend`
+- Friendship is not symmetric
+	- Must be explicitly granted
+		- if A is a friend of B -> B is NOT a friend of A
+- Friendship is not transitive
+	- Must be explicitly granted
+		- if A is friend of B and B is friend of C -> then A is NOT a friend of C
+
