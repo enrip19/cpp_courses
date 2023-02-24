@@ -1875,14 +1875,14 @@ Type &Type::operator=(const Type &rhs);
 Mystring &Mystring::operator=(const Mystring &rhs);
 
 Mystring &Mystring::operator=(const Mystring &rhs){
-	if (this == &rhs)
+	if (this == &rhs) // check for self-assignment
 		return *this;
 	
-	delete [] str;
-	str = new char[std::strlen(rhs.str) + 1];
-	std::strcpy(str, rhs.str);
+	delete [] str; // deallocate storage for this->str since we are overwriting it. Else -> memory leak
+	str = new char[std::strlen(rhs.str) + 1]; // Allocate storage for the deep copy
+	std::strcpy(str, rhs.str); // Perform copy
 
-	return *this;
+	return *this; // Return the current by reference to allow chain assignment (s1 = s2 = s3 )
 }
 
 // Usage
